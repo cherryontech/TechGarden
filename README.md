@@ -6,6 +6,7 @@
 **Description will be updated..**
 
 ## Tech Stack:
+[![Tools](https://skillicons.dev/icons?i=tailwind&theme=light)](https://skillicons.dev)
 
 ## Installation:
 
