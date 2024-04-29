@@ -1,12 +1,25 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import Assessments from "./pages/Assessments";
+import JobDescriptions from "./pages/JobDescriptions";
+import Resources from "./pages/Resources";
+import NotFound from "./pages/NotFound";
 import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <h1 className="App-header text-5xl font-bold">
-        <p>Hello World </p>
-      </h1>
-    </div>
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/job-descriptions" element={<JobDescriptions />} />
+        <Route path="/assessments" element={<Assessments />} />
+        <Route path="/resources" element={<Resources />} />
+        {/* A catch-all route for unknown paths */}
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
 
