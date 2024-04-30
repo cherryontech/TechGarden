@@ -1,5 +1,5 @@
 
-# TechGarden
+# TechGarden 🌱
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/49c64589-005e-4a94-bf2a-57b6b6b9be4b/deploy-status)](https://app.netlify.com/sites/mars-mavericks-2024/deploys)
 
