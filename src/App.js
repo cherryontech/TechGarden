@@ -11,14 +11,16 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/job-descriptions" element={<JobDescriptions />} />
-        <Route path="/assessments" element={<Assessments />} />
-        <Route path="/resources" element={<Resources />} />
-        {/* A catch-all route for unknown paths */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
+      <div className="flex items-center justify-center min-h-screen">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/job-descriptions" element={<JobDescriptions />} />
+          <Route path="/assessments" element={<Assessments />} />
+          <Route path="/resources" element={<Resources />} />
+          {/* A catch-all route for unknown paths */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
