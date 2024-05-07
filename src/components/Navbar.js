@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 
 function Navbar() {
+
+  // temp color of bg-teal being used until pull request approved
   return (
-    <div>
-      <nav className="flex justify-between items-center align-middle px-3 md:py-4 md:px-20">
+      <nav className="fixed top-0 left-0 right-0 z-10 flex justify-between items-center align-middle px-3 md:py-4 md:px-20 bg-teal-100">
         <div>
           <Link
             to="/"
@@ -28,7 +29,6 @@ function Navbar() {
           ))}
         </div>
       </nav>
-    </div>
   );
 }
 
