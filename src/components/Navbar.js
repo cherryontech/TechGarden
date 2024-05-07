@@ -15,9 +15,9 @@ function Navbar() {
         </div>
         <div className="flex md:space-x-4 items-center">
           {[
-            ["Job Descriptions", "/job-descriptions"],
-            ["Assessments", "/assessments"],
-            ["Resources", "/resources"],
+            ["Discover Tech Roles", "/tech-roles"],
+            ["Skill Evaluation", "/skill-eval"],
+            ["Knowledge Hub", "/knowledge-hub"],
           ].map(([title, url, index]) => (
             <Link
               key={index}
