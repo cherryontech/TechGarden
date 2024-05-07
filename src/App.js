@@ -1,11 +1,12 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Assessments from "./pages/Assessments";
-import JobDescriptions from "./pages/JobDescriptions";
-import Resources from "./pages/Resources";
+import TechRoles from "./pages/TechRoles";
+import SkillEval from "./pages/SkillEvaluation";
+import KnowledgeHub from "./pages/KnowledgeHub";
 import NotFound from "./pages/NotFound";
 import "./App.css";
+
 
 function App() {
   return (
@@ -14,9 +15,9 @@ function App() {
       <div className="flex items-center justify-center min-h-screen">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/job-descriptions" element={<JobDescriptions />} />
-          <Route path="/assessments" element={<Assessments />} />
-          <Route path="/resources" element={<Resources />} />
+          <Route path="/tech-roles" element={<TechRoles />} />
+          <Route path="/skill-eval" element={<SkillEval />} />
+          <Route path="/knowledge-hub" element={<KnowledgeHub />} />
           {/* A catch-all route for unknown paths */}
           <Route path="*" element={<NotFound />} />
         </Routes>
