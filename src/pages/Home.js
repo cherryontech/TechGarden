@@ -1,10 +1,10 @@
-// import homeDeskFlowers from "../assets/home-desk-flowers.jpeg";
+import homeDeskFlowers from "../assets/home-desk-flowers.png";
 
 function Home() {
   return (
-    <div className="flex items-center m-5">
-      <div className="md:w-2/5 px-7">
-        <h1 className="text-4xl text-midnight-moss font-bold">
+    <div className="flex flex-col lg:flex-row items-center mt-5 lg:mt-0 pt-20 lg:pt-14 lg:px-5">
+      <div className="flex basis-1/3 flex-col p-7 lg:ps-5">
+        <h1 className="text-3xl text-midnight-moss font-bold">
           Learn and Grow Into Your Next Tech Role
         </h1>
         <p className="text-xl text-midnight-moss leading-normal py-4">
@@ -19,8 +19,12 @@ function Home() {
           </button>
         </div>
       </div>
-      <div className="md:w-3/5">
-        {/* <img src={homeDeskFlowers} alt="desk with a laptop and multiple plants on top" /> */}
+      <div className="flex justify-end basis-2/3">
+        <img
+          src={homeDeskFlowers}
+          alt="desk with a laptop and multiple plants on top"
+          className="w-full lg:w-11/12"
+        />
       </div>
     </div>
   );
