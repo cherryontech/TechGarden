@@ -5,7 +5,7 @@ function Navbar() {
   const [showMenu, setShowMenu] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 flex justify-between items-center px-3 py-3 md:px-20 bg-oasis-blue h-16">
+    <nav className="fixed top-0 left-0 right-0 z-10 flex justify-between items-center px-3 py-3 md:px-20 bg-oasis-blue h-16 font-sans">
       <div className="flex items-center">
         <Link
           to="/"

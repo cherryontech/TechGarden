@@ -10,7 +10,7 @@ function Home() {
         <h1 className="text-2xl md:text-4xl text-center lg:text-start font-bold md:font-extrabold">
           Into Your Next Tech Role
         </h1>
-        <p className="text-base md:text-2xl md:text-xl text-midnight-moss leading-normal py-4">
+        <p className="text-base md:text-2xl md:text-xl text-midnight-moss font-medium leading-normal py-4">
           TechGarden empowers you to make informed decisions in the tech
           industry with our knowledge-driven insights. Utilize our tools to
           craft a strategic plan for your next steps, guiding your path to
