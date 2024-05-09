@@ -12,7 +12,7 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-      <div className="flex items-center justify-center min-h-screen">
+      <div className="flex items-center justify-center min-h-screen font-sans">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tech-roles" element={<TechRoles />} />
