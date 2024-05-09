@@ -1,7 +1,15 @@
+import techRolesBG from "../assets/tech-roles-bg.png";
 function TechRoles() {
   return (
     <div className="App-header">
-      <h1 className="text-3xl font-bold">Tech Roles Page</h1>
+    <div className="flex justify-end basis-2/3">
+        <img
+          src={techRolesBG}
+          alt="Multiple sets of flowers"
+          className="w-full"
+        />
+      </div>
+
     </div>
   );
 }
