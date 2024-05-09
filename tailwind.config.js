@@ -8,6 +8,7 @@ export default {
         "oasis-blue": "#B1DBD7", // navbar color
         "tropical-cyan": "#4BB3A9", // button color
         "midnight-moss": "#0C0D0F", // text color
+        "gray-moss": "#6D6D6D", // footer color 
       },
       fontFamily: {
         sans: ["Lato", "sans-serif"],
