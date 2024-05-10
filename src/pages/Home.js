@@ -17,9 +17,12 @@ function Home() {
           success.
         </p>
         <div className="flex justify-center">
-          <button className="rounded-md border border-midnight-moss shadow-md text-base lg:text-lg font-semibold text-midnight-moss bg-tropical-cyan justify-center p-2 md:p-4">
+          <a
+            href="/tech-roles"
+            className="rounded-md border border-midnight-moss hover:bg-oasis-blue shadow-md text-base lg:text-lg font-semibold text-midnight-moss bg-tropical-cyan justify-center p-2 md:p-4"
+          >
             Discover Tech Roles
-          </button>
+          </a>
         </div>
       </div>
       <div className="flex justify-end basis-2/3">
