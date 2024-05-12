@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import TechRoles from "./pages/TechRoles";
 import SkillEval from "./pages/SkillEvaluation";
 import KnowledgeHub from "./pages/KnowledgeHub";
+import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
 import "./App.css";
 
@@ -22,6 +23,7 @@ function App() {
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
+      <Footer />
     </BrowserRouter>
   );
 }

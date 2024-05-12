@@ -1,9 +1,10 @@
+import HomeFooter from "../components/HomeFooter";
 import homeDeskFlowers from "../assets/home-desk-flowers.png";
 
 function Home() {
   return (
-    <div className="flex flex-col lg:flex-row items-center mt-5 lg:mt-0 pt-20 lg:pt-5 lg:px-5">
-      <div className="flex basis-1/3 flex-col p-7 lg:p-0 lg:ps-5">
+    <div className="flex flex-col lg:flex-row items-center mt-5 lg:mt-0 pt-20 lg:pt-5 lg:px-5 lg:relative">
+      <div className="flex basis-1/3 flex-col p-5 lg:p-0 lg:ps-5">
         <h1 className="text-4xl md:text-5xl text-midnight-moss text-center lg:text-start font-bold md:font-extrabold">
           Learn and Grow
         </h1>
@@ -28,6 +29,9 @@ function Home() {
           alt="desk with a laptop and multiple plants on top"
           className="w-full"
         />
+      </div>
+      <div className="lg:w-2/5 xl:w-2/3 lg:flex lg:justify-between lg:absolute bottom-0 lg:left-0 pt-10 lg:pt-0">
+        <HomeFooter />
       </div>
     </div>
   );
