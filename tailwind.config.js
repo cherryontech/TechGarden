@@ -12,7 +12,7 @@ export default {
         "light-orange": "#FFD89F",
       },
       fontFamily: {
-        sans: ["Lato", "sans-serif"],
+        sans: ["Lato", "Helvetica", "Arial", "sans-serif"],
       },
       backgroundImage: {
         'tech-roles-bg': "url('./assets/tech-roles-bg.png')", // Add your image URL here
