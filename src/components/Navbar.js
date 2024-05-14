@@ -33,7 +33,7 @@ function Navbar() {
         <Link to="/">
         <button
           type="button"
-          className="bg-white border border-gray-300 focus:outline-none text-sm font-small rounded-lg px-4 py-2 dark:bg-oasis-blue dark:text-grey dark:border-gray-600"
+          className="bg-white border border-midnight-moss focus:outline-none text-sm font-small rounded-lg px-4 py-2 dark:bg-oasis-blue dark:text-grey dark:border-gray-600"
           aria-label="Log in"
        >
           Log in
@@ -43,7 +43,7 @@ function Navbar() {
    
         <button
           type="button"
-          className="bg-white border border-gray-300 focus:outline-none text-sm font-small rounded-lg px-3 py-2 dark:bg-gray-50 dark:text-grey dark:border-gray-600"
+          className="bg-white border border-midnight-moss focus:outline-none text-sm font-small rounded-lg px-3 py-2 dark:bg-gray-50 dark:text-grey dark:border-gray-600"
           aria-label="Sign in"
         >
           Sign Up

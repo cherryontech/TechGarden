@@ -5,10 +5,10 @@ function Home() {
   return (
     <div className="flex flex-col lg:flex-row items-center mt-5 lg:mt-0 pt-20 lg:pt-5 lg:px-5 lg:relative">
       <div className="flex basis-1/3 flex-col p-5 lg:p-0 lg:ps-5">
-        <h1 className="text-4xl md:text-5xl text-midnight-moss text-center lg:text-start font-bold md:font-extrabold">
+        <h1 className="text-3xl md:text-4xl text-midnight-moss text-center lg:text-start font-bold md:font-extrabold">
           Learn and Grow
         </h1>
-        <h1 className="text-2xl md:text-4xl text-center lg:text-start font-bold md:font-extrabold">
+        <h1 className="text-3xl md:text-4xl text-center lg:text-start font-bold md:font-extrabold">
           Into Your Next Tech Role
         </h1>
         <p className="text-base md:text-2xl md:text-xl text-midnight-moss font-medium leading-normal py-4">
