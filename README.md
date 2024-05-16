@@ -8,16 +8,13 @@
 
 ## Table of Contents
 
-1. [Context and Purpose](#context-and-purpose)
-2. [Current Features](#current-features)
-3. [Technologies Used](#technologies-used)
-4. [Discoveries and Future Goals](#discoveries-and-future-goals)
-5. [Screenshots](#screenshots)
-6. [Installation](#installation)
+1. [Current Features](#current-features)
+2. [Technologies Used](#technologies-used)
+3. [Discoveries and Future Goals](#discoveries-and-future-goals)
+4. [Screenshots](#screenshots)
+5. [Installation](#installation)
 
 ---
-
-## Context and Purpose
 
 Welcome to TechGarden, your digital oasis for nurturing career growth in the tech industry. Like a wise mentor, TechGarden provides invaluable guidance, helping you navigate non-linear career paths and cultivate your skills within the ever-changing world of technology.
 
