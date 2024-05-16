@@ -29,17 +29,8 @@ Welcome to TechGarden, your digital oasis for nurturing career growth in the tec
 - **Continuous Improvement:** Like a wise sage, TechGarden thrives on feedback, constantly evolving to meet your evolving needs and aspirations.
 
 ## Technologies Used
-1. **Frontend**
-![Tools](https://skillicons.dev/icons?i=react&theme=light)
 
-2. **Styling**
-![Tools](https://skillicons.dev/icons?i=tailwind&theme=light)
-
-3. **Version Control**
-![Tools](https://skillicons.dev/icons?i=git&theme=light)
-
-4. **Hosting**
-![Tools](https://skillicons.dev/icons?i=netlify&theme=light)
+![Tools](https://skillicons.dev/icons?i=react&theme=light) ![Tools](https://skillicons.dev/icons?i=tailwind&theme=light) ![Tools](https://skillicons.dev/icons?i=git&theme=light) ![Tools](https://skillicons.dev/icons?i=netlify&theme=light)
 
 ## Discoveries and Future Goals
 
