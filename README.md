@@ -1,4 +1,4 @@
-# <center>TechGarden 🌱</center>
+# TechGarden 🌱
 
 ---
 
