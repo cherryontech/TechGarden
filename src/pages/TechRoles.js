@@ -9,17 +9,20 @@ const cardsData = [
   {
     title: "Developer",
     description: "Short position description Short position description Short position description",
-    skills: ["Skill 1", "Skill 2", "Skill 3"]
+    skills: ["Skill 1", "Skill 2", "Skill 3"],
+    url: "../../developer"
   },
   {
     title: "Project Manager",
     description: "Short position description Short position description Short position description",
-    skills: ["Skill 1", "Skill 2", "Skill 3"]
+    skills: ["Skill 1", "Skill 2", "Skill 3"],
+    url: "../../project-manager"
   },
   {
     title: "UX Designer",
     description: "Short position description Short position description Short position description",
-    skills: ["Skill 1", "Skill 2", "Skill 3"]
+    skills: ["Skill 1", "Skill 2", "Skill 3"],
+    url: "../../ux-designer"
   },
   // Add more objects for additional cards if needed
 ];
@@ -66,7 +69,9 @@ return (
                   ))}
                 </div>
               </div>
-              <p className="text-sm text-custom-green text-right pt-6">Learn More</p>
+              <p className="text-sm text-custom-green text-right pt-6">
+              <a href={card.url}>Learn More</a>
+              </p>
             </div>
           </div>
         ))}

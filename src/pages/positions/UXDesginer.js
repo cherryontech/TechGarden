@@ -1,10 +1,11 @@
 
 
 
-
-function UXDesigner() {
-
-    <h1>UX Designer Page</h1>
-}
-
-export default UXDesigner; 
+function UXDesginer() {
+    return (
+      <h1>Project Manager Page</h1>
+    );
+  }
+  
+  export default UXDesginer;
+  
