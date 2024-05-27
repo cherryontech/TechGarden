@@ -53,7 +53,7 @@ In the project directory, first install the project dependencies:
 
 Then, execute:
 
-### `npm run`
+### `npm start`
 
 #### ESLint:
 
