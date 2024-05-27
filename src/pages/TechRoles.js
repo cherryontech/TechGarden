@@ -13,10 +13,10 @@ const cardsData = [
     url: "../../developer"
   },
   {
-    title: "Project Manager",
+    title: "Product Manager",
     description: "Short position description Short position description Short position description",
     skills: ["Skill 1", "Skill 2", "Skill 3"],
-    url: "../../project-manager"
+    url: "../../product-manager"
   },
   {
     title: "UX Designer",
