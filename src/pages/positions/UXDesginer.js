@@ -3,7 +3,7 @@
 
 function UXDesginer() {
     return (
-      <h1>Project Manager Page</h1>
+      <h1>UX Designer Page</h1>
     );
   }
   
