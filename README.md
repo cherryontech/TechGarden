@@ -12,7 +12,7 @@
 2. [Technologies Used](#technologies-used)
 3. [Discoveries and Future Goals](#discoveries-and-future-goals)
 4. [Screenshots](#screenshots)
-5. [Installation](#installation)
+5. [How to Run this Repo](#installation)
 
 ---
 
@@ -37,15 +37,23 @@ Throughout our journey, we've gained invaluable insights and wisdom. As we conti
 
 - **Interactive Virtual Sessions:** Engage in meaningful virtual conversations to gain confidence in your soft skills and prepare for real-world challenges.
 
+- **Personalized Recommendations:** Get the AI-powered recommendation based on the data that you provide.
+
+- **User Accounts**: Store, track and share your learning journey as you achieve your goals.
+
 ## Screenshots
 > Soon to come! 
 
 
 ## Installation:
 
-In the project directory, you can run:
+In the project directory, first install the project dependencies:
 
-### `npm start`
+### `npm i`
+
+Then, execute:
+
+### `npm run`
 
 #### ESLint:
 
