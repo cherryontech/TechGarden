@@ -5,7 +5,7 @@ import TechRoles from "./pages/TechRoles";
 import SkillEval from "./pages/SkillEvaluation";
 import KnowledgeHub from "./pages/KnowledgeHub";
 import Developer from "./pages/positions/Developer";
-import ProjectManager from "./pages/positions/ProjectManager";
+import ProductManager from "./pages/positions/ProductManager";
 import UXDesigner from "./pages/positions/UXDesginer";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
@@ -23,7 +23,7 @@ function App() {
           <Route path="/skill-eval" element={<SkillEval />} />
           <Route path="/knowledge-hub" element={<KnowledgeHub />} />
           <Route path="/developer" element={<Developer />} />
-          <Route path="/project-manager" element={<ProjectManager/>} />
+          <Route path="/product-manager" element={<ProductManager/>} />
           <Route path="/ux-designer" element={<UXDesigner/>} />
           {/* A catch-all route for unknown paths */}
           <Route path="*" element={<NotFound />} />
