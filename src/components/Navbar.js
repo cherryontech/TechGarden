@@ -11,60 +11,37 @@ function Navbar() {
           to="/"
           className="fixed left-5 text-2xl font-semibold mr-3 hover:text-gray-600 whitespace-nowrap"
         >
-          Tech Garden
+          TechGarden
         </Link>
       </div>
-      <div className="hidden fixed md:flex md:space-x-4 items-center whitespace-nowrap justify-start top-5.5 left-48 px-3 md:px-5" >
+      <div className="hidden fixed md:flex md:space-x-4 items-center whitespace-nowrap justify-start top-5.5 left-48 px-3 md:px-5">
         {[
-          ["Discover Tech Roles", "/tech-roles"],
+          ["Discover Roles", "/tech-roles"], // edit the path later to /discover maybe
           ["Skill Evaluation", "/skill-eval"],
           ["Knowledge Hub", "/knowledge-hub"],
         ].map(([title, url], index) => (
           <Link
             key={index}
             to={url}
-            className="text-sm font-small hover:text-gray-600 whitespace-nowrap"
+            className="text-sm font-small text-gray-600 hover:text-gray-800 whitespace-nowrap"
           >
             {title}
           </Link>
         ))}
       </div>
-      <div className="hidden fixed md:flex md:flex-row items-center space-x-2 top-3 right-6 ">
-        <Link to="/">
+      <div className="md:hidden fixed top-6 right-6">
         <button
           type="button"
-          className="bg-white border border-midnight-moss focus:outline-none text-sm font-small rounded-lg px-4 py-2 dark:bg-oasis-blue dark:text-grey dark:border-gray-600"
-          aria-label="Log in"
-       >
-          Log in
-        </button>
-        </Link>
-        <Link to="/">
-   
-        <button
-          type="button"
-          className="bg-white border border-midnight-moss focus:outline-none text-sm font-small rounded-lg px-3 py-2 dark:bg-gray-50 dark:text-grey dark:border-gray-600"
-          aria-label="Sign in"
+          className="block md:hidden focus:outline-none"
+          onClick={() => setShowMenu(!showMenu)}
+          aria-label="Toggle Menu"
         >
-          Sign Up
+          <span className="sr-only">Toggle Menu</span>
+          <div className="w-5 h-0.5 bg-gray-600 mb-1"></div>
+          <div className="w-5 h-0.5 bg-gray-600 mb-1"></div>
+          <div className="w-5 h-0.5 bg-gray-600"></div>
         </button>
-        </Link>
       </div>
-
-  <div className="md:hidden fixed top-6 right-6">
-  <button
-    type="button"
-    className="block md:hidden focus:outline-none"
-    onClick={() => setShowMenu(!showMenu)}
-    aria-label="Toggle Menu" 
-  >
-    
-    <span className="sr-only">Toggle Menu</span>
-    <div className="w-5 h-0.5 bg-gray-600 mb-1"></div>
-    <div className="w-5 h-0.5 bg-gray-600 mb-1"></div>
-    <div className="w-5 h-0.5 bg-gray-600"></div>
-  </button>
-</div>
     </nav>
   );
 }
