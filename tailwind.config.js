@@ -17,6 +17,9 @@ export default {
       backgroundImage: {
         'tech-roles-bg': "url('./assets/tech-roles-bg.png')", // Add your image URL here
       },
+      fontSize: {
+        'xxs': '0.75rem',
+      }
     },
   },
   plugins: [],
