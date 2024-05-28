@@ -62,7 +62,7 @@ function TechRoles() {
                     ))}
                   </div>
                 </div>
-                <p className="text-sm text-custom-green text-right pt-6">
+                <p className="text-sm text-tropical-cyan text-right pt-6">
                   <a href={card.url}>Learn More</a>
                 </p>
               </div>
