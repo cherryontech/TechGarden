@@ -3,7 +3,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        cream: "#F5F4F2", // background color
+        "cream": "#F5F4F2", // background color
         "oasis-blue": "#B1DBD7", // navbar color
         "tropical-cyan": "#4BB3A9", // button color 
         "darker-cyan": "#357F78", // footer link color
