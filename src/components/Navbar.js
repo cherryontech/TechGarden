@@ -8,9 +8,6 @@ import {
   PopoverGroup,
   PopoverPanel,
   Transition,
-  Disclosure,
-  DisclosureButton,
-  DisclosurePanel,
   DialogPanel,
 } from "@headlessui/react";
 import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/24/outline";
@@ -25,10 +22,6 @@ const navLinks = [
   { name: "Skill Evaluation", path: "/skill-eval" },
   { name: "Knowledge Hub", path: "/knowledge-hub" },
 ];
-
-function classNames(...classes) {
-  return classes.filter(Boolean).join(" ");
-}
 
 const MenuLink = ({ name, path }) => (
   <Link
@@ -152,34 +145,12 @@ function Navbar() {
       >
         <div className="fixed inset-0 z-10">
           <DialogPanel className="fixed right-1 z-10 w-60 bg-white px-6 py-3 mt-14 max-w-xs transform px-2 lg:max-w-3xl rounded-lg shadow-lg ring-1 ring-oasis-blue ring-opacity-5">
-            <Disclosure as="div" className="-mx-3">
-              {({ open }) => (
-                <>
-                  <DisclosureButton className="flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base leading-7 text-gray-600 hover:text-gray-800 hover:bg-gray-50">
-                    Discover Roles
-                    <ChevronDownIcon
-                      className={classNames(
-                        open ? "rotate-180" : "",
-                        "h-5 w-5"
-                      )}
-                      aria-hidden="true"
-                    />
-                  </DisclosureButton>
-                  <DisclosurePanel className="mt-2 space-y-2">
-                    {techRoles.map((role) => (
-                      <DisclosureButton
-                        key={role.name}
-                        as={Link}
-                        to={role.path}
-                        className="block rounded-lg py-2 pl-6 pr-3 text-sm leading-7 text-gray-600 hover:bg-gray-50"
-                      >
-                        {role.name}
-                      </DisclosureButton>
-                    ))}
-                  </DisclosurePanel>
-                </>
-              )}
-            </Disclosure>
+            <Link
+              to="/tech-roles"
+              className="-mx-3 flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base leading-7 text-gray-600 hover:text-gray-800 hover:bg-gray-50"
+            >
+              Discover Roles
+            </Link>
             {navLinks.map((link) => (
               <Link
                 key={link.name}
