@@ -1,51 +1,51 @@
 import React from 'react';
-import techRolesBG from "../assets/tech-roles-bg.png";
-import image from "../assets/Image.png";
+import devImage from "../assets/dev_role.png";
+import prodImage from "../assets/prod_role.png";
+import uxImage from "../assets/ux_role.png";
 
 function TechRoles() {
   const cardsData = [
     {
       title: "Developer",
       description: "The code ninjas who turn design dreams into functional, responsive reality.",
-      skills: ["Responsive Design", "Web Accessibility Standards", "Problem Solving and Debugging"],
-      url: "../../developer"
+      skills: ["Responsive Design", "API Integration", "Problem Solving and Debugging"],
+      url: "../../developer",
+      image: devImage
     },
     {
       title: "Product Manager",
       description: "The visionaries who steer the product ship, balancing user desires and business ambitions.",
       skills: ["Agile Methodologies", "Project Management", "Leadership"],
-      url: "../../product-manager"
+      url: "../../product-manager",
+      image: prodImage
     },
     {
       title: "UX Designer",
       description: "The creative wizards who make sure using an app feels as good as it looks.",
       skills: ["User Research", "Wireframes", "Feedback and Iteration"],
-      url: "../../ux-designer"
+      url: "../../ux-designer",
+      image: uxImage
     },
   ];
 
   return (
+    
     <div className="relative w-full h-screen flex justify-center items-center">
-      <img
-        src={techRolesBG}
-        alt="Multiple sets of flowers"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-      <div className="w-full max-w-screen-xl mx-auto px-4 overflow-y-auto mb-12" style={{ maxHeight: '80vh' }}>
+    
+      <div className="w-full max-w-screen-xl mx-auto px-4 overflow-y-auto mt-12 p-2 " style={{ maxHeight: '80vh' }}>
         <div className="flex flex-wrap justify-center items-center gap-11">
           {cardsData.map((card, index) => (
             <div
               key={index}
-              className="relative flex flex-col p-4 text-gray-700 bg-cream shadow-md bg-clip-border w-full max-w-sm md:max-w-md lg:w-[calc(33%-1rem)] xl:w-[calc(25%-1rem)]"
-              style={{ height: '520px', width: '350px' }}
-          // Set a fixed height for the card container
+              className="relative flex flex-col p-4 text-gray-700 bg-cream shadow-xl  w-full max-w-sm md:max-w-md"
+              style={{ height: '506px', width: '300px',  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1)' }}
             >
-              <div className="relative h-1/2 overflow-hidden text-cream bg-blue-gray-500 shadow-blue-gray-500/40  border-2 border-light-orange">
+              <div className="relative  overflow-hidden text-cream bg-blue-gray-500 shadow-blue-gray-500/40  border-2 border-light-orange mx-auto" style={{ height: '250px', width: '250px',  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.1)' }}>
             
                 <img
-                  src={image}
-                  alt="card-image"
-                  className="w-full h-full object-cover"
+                  src={card.image}
+                  alt={`${card.title} image`}
+                  className="w-full h-full  object-cover"
                 />
              
               </div>
