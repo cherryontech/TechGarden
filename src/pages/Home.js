@@ -7,7 +7,7 @@ function Home() {
         <h1 className="text-3xl md:text-4xl text-midnight-moss text-center lg:text-start font-bold md:font-extrabold">
           Learn and Grow
         </h1>
-        <h1 className="text-3xl md:text-4xl text-center lg:text-start font-bold md:font-extrabold">
+        <h1 className="text-3xl md:text-4xl text-midnight-moss text-center lg:text-start font-bold md:font-extrabold">
           Into Your Next Tech Role
         </h1>
         <p className="text-base md:text-2xl md:text-xl text-midnight-moss font-medium leading-normal py-4">

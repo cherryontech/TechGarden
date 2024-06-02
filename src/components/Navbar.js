@@ -19,7 +19,7 @@ const techRoles = [
 ];
 
 const navLinks = [
-  { name: "Skill Evaluation", path: "/skill-eval" },
+  { name: "Skill Evaluation", path: "/skill-evaluation" },
   { name: "Knowledge Hub", path: "/knowledge-hub" },
 ];
 
