@@ -6,6 +6,8 @@ export default {
         "cream": "#F5F4F2", // background color
         "oasis-blue": "#B1DBD7", // navbar color
         "tropical-cyan": "#4BB3A9", // button color 
+        "light-gray": "#F9FAFB", // back button color
+        "darker-gray": "#EAECF0", // back button hover color
         "darker-cyan": "#357F78", // footer link color
         "midnight-moss": "#0C0D0F", // text color
         "gray-moss": "#667085", // footer color 

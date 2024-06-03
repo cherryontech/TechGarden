@@ -28,6 +28,21 @@ function SkillEvaluationStart() {
 
   const nextStep = () => setStep((prevStep) => prevStep + 1);
 
+  const goBack = () => setStep((prevStep) => prevStep - 1);
+
+  const getCurrentRole = () => {
+    switch (step) {
+      case 1:
+        return roleData[0]; // Developer
+      case 2:
+        return roleData[2]; // UX Designer
+      case 3:
+        return roleData[1]; // Product Manager
+      default:
+        return null;
+    }
+  };
+
   return (
     <div className="App-header text-center max-w-72	md:max-w-96 flex-row">
       {step === 0 && (
@@ -44,7 +59,7 @@ function SkillEvaluationStart() {
                   and expand your opportunities.
                 </Label>
                 <div className="relative pt-6">
-                  <ListboxButton className="relative w-full cursor-default rounded-md bg-white py-3 pl-3 pr-10 text-left text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-oasis-blue sm:text-sm sm:leading-6">
+                  <ListboxButton className="relative w-full cursor-pointer rounded-md bg-white py-3 pl-3 pr-10 text-left text-gray-900 shadow-lg ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-oasis-blue sm:text-sm sm:leading-6">
                     <span className="flex items-center">
                       {selected ? (
                         <span className="ml-3 block truncate text-base">
@@ -79,7 +94,7 @@ function SkillEvaluationStart() {
                               active
                                 ? "bg-tropical-cyan text-black"
                                 : "text-gray-500",
-                              "relative cursor-default select-none py-2 pl-3 pr-9"
+                              "relative cursor-pointer select-none py-2 pl-3 pr-9"
                             )
                           }
                           value={card}
@@ -123,16 +138,31 @@ function SkillEvaluationStart() {
           <div className="pt-36 flex items-center">
             <button
               onClick={nextStep}
-              className="rounded-md hover:bg-tropical-cyan shadow-md text-base font-semibold text-midnight-moss bg-tropical-cyan justify-center w-full py-3"
+              className="rounded-md shadow-lg hover:bg-tropical-cyan shadow-md text-base font-semibold text-midnight-moss bg-tropical-cyan justify-center w-full py-3"
             >
               Next
             </button>
           </div>
         </>
       )}
-      {step === 1 && <DevelopmentSkills nextStep={nextStep} />}
-      {step === 2 && <UXSkills nextStep={nextStep} />}
-      {step === 3 && <PMSkills nextStep={nextStep} />}
+      {step === 1 && (
+        <DevelopmentSkills
+          nextStep={nextStep}
+          goBack={goBack}
+          role={getCurrentRole()}
+        />
+      )}
+      {step === 2 && (
+        <UXSkills nextStep={nextStep} goBack={goBack} role={getCurrentRole()} />
+      )}
+      {step === 3 && (
+        <PMSkills
+          nextStep={nextStep}
+          goBack={goBack}
+          role={getCurrentRole()}
+          isLastPage={true}
+        />
+      )}
     </div>
   );
 }
