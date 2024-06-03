@@ -1,17 +1,24 @@
 import PropTypes from "prop-types";
 import EvaluationTemplate from "../../components/EvaluationTemplate";
 
-function PMSkills({ nextStep }) {
+function PMSkills({ nextStep, goBack, role, isLastPage }) {
   return (
-    <>
-      <h1>Product Manager Skills Evaluation Section</h1>
-      <EvaluationTemplate nextStep={nextStep} />
-    </>
+    <EvaluationTemplate
+      nextStep={nextStep}
+      goBack={goBack}
+      role={role}
+      isLastPage={isLastPage}
+    >
+      {/* Add skill selection UI for PM skills here */}
+    </EvaluationTemplate>
   );
 }
 
 PMSkills.propTypes = {
   nextStep: PropTypes.func.isRequired,
+  goBack: PropTypes.func.isRequired,
+  role: PropTypes.object.isRequired,
+  isLastPage: PropTypes.func.isRequired,
 };
 
 export default PMSkills;

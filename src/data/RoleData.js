@@ -4,9 +4,9 @@ const roleData = [
     description:
       "The code ninjas who turn design dreams into functional, responsive reality.",
     skills: [
-      "Responsive Design",
-      "Web Accessibility Standards",
-      "Problem Solving and Debugging",
+      { name: "Responsive Design", description: "Description" },
+      { name: "Web Accessibility Standards", description: "Description" },
+      { name: "Problem Solving and Debugging", description: "Description" },
     ],
     url: "../../developer",
   },
@@ -14,14 +14,22 @@ const roleData = [
     title: "Product Manager",
     description:
       "The visionaries who steer the product ship, balancing user desires and business ambitions.",
-    skills: ["Agile Methodologies", "Project Management", "Leadership"],
+    skills: [
+      { name: "Agile Methodologies", description: "Description" },
+      { name: "Project Management", description: "Description" },
+      { name: "Leadership", description: "Description" },
+    ],
     url: "../../product-manager",
   },
   {
     title: "UX Designer",
     description:
       "The creative wizards who make sure using an app feels as good as it looks.",
-    skills: ["User Research", "Wireframes", "Feedback and Iteration"],
+    skills: [
+      { name: "User Research", description: "Description" },
+      { name: "Wireframes", description: "Description" },
+      { name: "Feedback and Iteration", description: "Description" },
+    ],
     url: "../../ux-designer",
   },
 ];

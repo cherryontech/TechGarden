@@ -1,17 +1,18 @@
 import PropTypes from "prop-types";
 import EvaluationTemplate from "../../components/EvaluationTemplate";
 
-function UXSkills({ nextStep }) {
+function UXSkills({ nextStep, goBack, role }) {
   return (
-    <>
-      <h1>UX Skills Evaluation Section</h1>
-      <EvaluationTemplate nextStep={nextStep} />
-    </>
+    <EvaluationTemplate nextStep={nextStep} goBack={goBack} role={role}>
+      {/* Add skill selection UI for UX skills here */}
+    </EvaluationTemplate>
   );
 }
 
 UXSkills.propTypes = {
   nextStep: PropTypes.func.isRequired,
+  goBack: PropTypes.func.isRequired,
+  role: PropTypes.object.isRequired,
 };
 
 export default UXSkills;
