@@ -15,7 +15,7 @@ function Footer() {
   ];
 
   return (
-    <footer className="px-4 md:px-24 py-10 bg-white text-gray-moss font-sans">
+    <footer className="px-4 md:px-24 py-10 border-t-2 border-green-blue text-gray-moss font-sans">
       <div className="flex flex-col md:flex-row md:justify-between md:items-start py-5">
         <div className="w-full md:w-44 lg:w-72 order-1 md:order-1">
           <p className="text-xl text-black font-bold pb-5">TechGarden</p>

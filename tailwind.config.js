@@ -9,7 +9,8 @@ export default {
         "darker-cyan": "#357F78", // footer link color
         "midnight-moss": "#0C0D0F", // text color
         "gray-moss": "#667085", // footer color 
-        "light-orange": "#FFD89F",
+        "green-blue": "#C7E7E4", // footer border 1
+        "light-orange": "#FFD89F", // footer border 2
       },
       fontFamily: {
         sans: ["Lato", "Helvetica", "Arial", "sans-serif"],
