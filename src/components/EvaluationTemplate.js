@@ -54,7 +54,7 @@ function EvaluationTemplate({ goBack, nextStep, role, children, isLastPage }) {
             onClick={nextStep}
             className="rounded-md shadow-lg text-base font-semibold text-midnight-moss bg-tropical-cyan hover:bg-oasis-blue justify-center px-9 md:px-12 py-3"
           >
-            {isLastPage ? "Find my Career" : "Next"}
+            {isLastPage ? "Find My Career" : "Next"}
           </button>
         </div>
       </div>
