@@ -6,7 +6,7 @@ function UXDesginer() {
     return (
       <div className="container">
       <div className="containerTwo">
-        <div className="roles-image">
+        <div className="roles-image  border-2 border-light-orange">
           <img src={uxImage} alt="UX Role" className="role-image" />
         </div>
       </div>
