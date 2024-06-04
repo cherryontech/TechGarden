@@ -1,0 +1,42 @@
+.container {
+    display: grid;
+    grid-template-columns: min-content min-content;
+    margin-top: 2%;
+    justify-content: center;
+    grid-column-gap: 1em;
+    grid-row-gap: 0.5em;
+ }
+
+ .roles-image{
+    height: 225px;
+    width: 225px;
+ }
+ .roles-title {
+    grid-column: 2;
+    grid-row: 1; /* Placing title in the first row */
+ }
+ 
+ 
+ .roles-sum {
+    grid-column: 2; /* Placing summary in the second row */
+    min-width: 275px;
+ }
+ .roles-list1 {
+    grid-column: 2;
+ }
+ 
+ 
+ .containerthree,
+ .containerfour,
+ .containerfive,
+ .containersix{
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    grid-column: 1 / span 2; /* Span across both columns */
+    grid-gap: 10px
+  }
+ 
+ 
+ 
+ 
+ 
