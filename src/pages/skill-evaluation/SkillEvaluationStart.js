@@ -59,7 +59,7 @@ function SkillEvaluationStart() {
                   and expand your opportunities.
                 </Label>
                 <div className="relative pt-6">
-                  <ListboxButton className="relative w-full cursor-pointer rounded-md bg-white py-3 pl-3 pr-10 text-left text-gray-900 shadow-lg ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-oasis-blue sm:text-sm sm:leading-6">
+                  <ListboxButton className="relative w-full cursor-pointer rounded-md bg-light-gray py-3 pl-3 pr-10 text-left text-gray-900 shadow-lg ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-oasis-blue sm:text-sm sm:leading-6">
                     <span className="flex items-center">
                       {selected ? (
                         <span className="ml-3 block truncate text-base">
@@ -85,7 +85,7 @@ function SkillEvaluationStart() {
                     leaveFrom="opacity-100"
                     leaveTo="opacity-0"
                   >
-                    <ListboxOptions className="absolute mt-1 max-h-56 w-full overflow-auto rounded-md bg-white py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <ListboxOptions className="absolute mt-1 max-h-56 w-full overflow-auto rounded-md bg-light-gray py-1 text-base shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                       {cardsData.map((card, index) => (
                         <ListboxOption
                           key={index}
@@ -138,7 +138,7 @@ function SkillEvaluationStart() {
           <div className="pt-36 flex items-center">
             <button
               onClick={nextStep}
-              className="rounded-md shadow-lg hover:bg-tropical-cyan shadow-md text-base font-semibold text-midnight-moss bg-tropical-cyan justify-center w-full py-3"
+              className="rounded-md shadow-lg hover:bg-oasis-blue shadow-md text-base font-semibold text-midnight-moss bg-tropical-cyan justify-center w-full py-3"
             >
               Next
             </button>

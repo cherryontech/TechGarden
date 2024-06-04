@@ -19,7 +19,7 @@ function Home() {
         <div className="flex justify-center">
           <a
             href="/tech-roles"
-            className="rounded-md border border-midnight-moss hover:bg-oasis-blue shadow-md text-base lg:text-lg font-semibold text-midnight-moss bg-tropical-cyan justify-center p-2 md:p-4"
+            className="rounded-md border border-darker-cyan hover:bg-oasis-blue shadow-md text-base lg:text-lg font-semibold text-midnight-moss bg-tropical-cyan justify-center p-2 md:p-4"
           >
             Discover Tech Roles
           </a>
