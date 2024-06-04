@@ -24,7 +24,7 @@ function EvaluationTemplate({ goBack, nextStep, role, children, isLastPage }) {
             key={index}
             checked={selectedSkills.includes(skill)}
             onChange={() => toggleSkill(skill)}
-            className="flex items-start justify-between border rounded-lg p-3 mb-2 w-96	"
+            className="flex items-start justify-between border hover:bg-lighter-cyan hover:border-oasis-blue rounded-lg p-3 mb-2 w-96	"
           >
             <div className="text-sm text-left">
               <p className="font-semibold pe-4 text-gray-700">{skill.name}</p>
