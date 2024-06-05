@@ -22,10 +22,15 @@ function SkillEvaluationStart() {
   const [selected, setSelected] = useState(null);
   const [cardsData, setCardsData] = useState([]);
   const [step, setStep] = useState(0);
+  const [selectedSkills, setSelectedSkills] = useState([]);
 
   useEffect(() => {
     setCardsData(roleData);
   }, []);
+
+  const handleSkillChange = (newSelectedSkills) => {
+    setSelectedSkills(newSelectedSkills);
+  };
 
   const nextStep = () => setStep((prevStep) => prevStep + 1);
 
@@ -158,6 +163,8 @@ function SkillEvaluationStart() {
             nextStep={nextStep}
             goBack={goBack}
             skills={getCurrentSkill()}
+            selectedSkills={selectedSkills}
+            handleSkillChange={handleSkillChange}
           />
         )}
         {step === 2 && (
@@ -165,6 +172,8 @@ function SkillEvaluationStart() {
             nextStep={nextStep}
             goBack={goBack}
             skills={getCurrentSkill()}
+            selectedSkills={selectedSkills}
+            handleSkillChange={handleSkillChange}
           />
         )}
         {step === 3 && (
@@ -172,6 +181,8 @@ function SkillEvaluationStart() {
             nextStep={nextStep}
             goBack={goBack}
             skills={getCurrentSkill()}
+            selectedSkills={selectedSkills}
+            handleSkillChange={handleSkillChange}
             isLastPage={true}
           />
         )}
