@@ -1,24 +1,22 @@
 import PropTypes from "prop-types";
 import EvaluationTemplate from "../../components/EvaluationTemplate";
 
-function PMSkills({ nextStep, goBack, role, isLastPage }) {
+function AdministrativeCompetencies({ nextStep, goBack, skills }) {
   return (
     <EvaluationTemplate
       nextStep={nextStep}
       goBack={goBack}
-      role={role}
-      isLastPage={isLastPage}
+      skills={skills}
     >
       {/* Add skill selection UI for PM skills here */}
     </EvaluationTemplate>
   );
 }
 
-PMSkills.propTypes = {
+AdministrativeCompetencies.propTypes = {
   nextStep: PropTypes.func.isRequired,
   goBack: PropTypes.func.isRequired,
-  role: PropTypes.object.isRequired,
-  isLastPage: PropTypes.func.isRequired,
+  skills: PropTypes.object.isRequired,
 };
 
-export default PMSkills;
+export default AdministrativeCompetencies;

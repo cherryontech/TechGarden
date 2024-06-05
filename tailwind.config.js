@@ -13,7 +13,8 @@ export default {
         "gray-moss": "#667085", // footer color 
         "green-blue": "#C7E7E4", // footer border 1
         "light-orange": "#FFD89F", // footer border 2
-        "lighter-cyan": "#EDF7F6", // skill hover button color
+        "lightest-cyan": "#EDF7F6", // skill hover button color
+        "light-cyan": "#86CCC5", // skill hover border color
       },
       fontFamily: {
         sans: ["Lato", "Helvetica", "Arial", "sans-serif"],
