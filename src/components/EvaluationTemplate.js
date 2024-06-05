@@ -1,4 +1,3 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
 import { Checkbox } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
@@ -7,17 +6,17 @@ function EvaluationTemplate({
   goBack,
   nextStep,
   skills,
+  selectedSkills,
   children,
   isLastPage,
+  handleSkillChange,
 }) {
-  const [selectedSkills, setSelectedSkills] = useState([]);
-
   const toggleSkill = (skill) => {
-    if (selectedSkills.includes(skill)) {
-      setSelectedSkills(selectedSkills.filter((s) => s !== skill));
-    } else {
-      setSelectedSkills([...selectedSkills, skill]);
-    }
+    const updatedSkills = selectedSkills.includes(skill)
+      ? selectedSkills.filter((s) => s !== skill)
+      : [...selectedSkills, skill];
+
+    handleSkillChange(updatedSkills);
   };
 
   return (
@@ -87,8 +86,10 @@ EvaluationTemplate.propTypes = {
       })
     ).isRequired,
   }).isRequired,
+  selectedSkills: PropTypes.array.isRequired, // Define selectedSkills prop
   children: PropTypes.node,
   isLastPage: PropTypes.bool,
+  handleSkillChange: PropTypes.func.isRequired,
 };
 
 export default EvaluationTemplate;
