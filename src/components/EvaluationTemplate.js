@@ -3,7 +3,13 @@ import PropTypes from "prop-types";
 import { Checkbox } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
-function EvaluationTemplate({ goBack, nextStep, role, children, isLastPage }) {
+function EvaluationTemplate({
+  goBack,
+  nextStep,
+  skills,
+  children,
+  isLastPage,
+}) {
   const [selectedSkills, setSelectedSkills] = useState([]);
 
   const toggleSkill = (skill) => {
@@ -17,31 +23,38 @@ function EvaluationTemplate({ goBack, nextStep, role, children, isLastPage }) {
   return (
     <div className="flex justify-center items-center">
       <div className="w-screen p-4">
-        <h2 className="text-2xl">Select the skills you already have</h2>
-        <h2 className="text-xl text-center mb-4">{role.title} Skills</h2>
-        {role.skills.map((skill, index) => (
+        <h2 className="text-2xl">Select the skills you currently have</h2>
+        <h2 className="text-xl text-center mb-4 mt-12 mb-6">{skills.title}</h2>
+        {skills.skills.map((skill, index) => (
           <Checkbox
             key={index}
             checked={selectedSkills.includes(skill)}
             onChange={() => toggleSkill(skill)}
-            className="flex items-start justify-between border hover:bg-lighter-cyan hover:border-oasis-blue rounded-lg p-3 mb-2 w-96	"
+            className={`flex items-start justify-between border border-gray-300 cursor-pointer hover:bg-lightest-cyan hover:border-light-cyan rounded-lg p-3 my-4
+            ${
+              selectedSkills.includes(skill)
+                ? "bg-lightest-cyan"
+                : "bg-transparent"
+            }`}
           >
             <div className="text-sm text-left">
-              <p className="font-semibold pe-4 text-gray-700">{skill.name}</p>
+              <p className="font-semibold text-gray-700">{skill.name}</p>
               <p className="text-gray-600">{skill.description}</p>
             </div>
-            <CheckCircleIcon
-              className={`${
-                selectedSkills.includes(skill)
-                  ? "h-5 w-5 text-tropical-cyan"
-                  : "h-4 w-4 text-transparent border rounded-full"
-              }`}
-            />
+            <div className="ps-6">
+              <CheckCircleIcon
+                className={`${
+                  selectedSkills.includes(skill)
+                    ? "h-5 w-5 text-tropical-cyan"
+                    : "h-4 w-4 text-transparent border border-gray-300 rounded-full"
+                }`}
+              />
+            </div>
           </Checkbox>
         ))}
 
         {children}
-        <div className="flex justify-between mt-4">
+        <div className="flex justify-between mt-12">
           {goBack && (
             <button
               onClick={goBack}
@@ -65,18 +78,17 @@ function EvaluationTemplate({ goBack, nextStep, role, children, isLastPage }) {
 EvaluationTemplate.propTypes = {
   goBack: PropTypes.func,
   nextStep: PropTypes.func.isRequired,
-  role: PropTypes.shape({
+  skills: PropTypes.shape({
     title: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
     skills: PropTypes.arrayOf(
       PropTypes.shape({
         name: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
       })
     ).isRequired,
-  }),
+  }).isRequired,
   children: PropTypes.node,
-  isLastPage: PropTypes.bool.isRequired, // New prop to indicate if it's the last page
+  isLastPage: PropTypes.bool,
 };
 
 export default EvaluationTemplate;

@@ -1,18 +1,18 @@
 import PropTypes from "prop-types";
 import EvaluationTemplate from "../../components/EvaluationTemplate";
 
-function DevelopmentSkills({ nextStep, goBack, role }) {
+function TechnicalProficiencies({ nextStep, goBack, skills }) {
   return (
-    <EvaluationTemplate nextStep={nextStep} goBack={goBack} role={role}>
+    <EvaluationTemplate nextStep={nextStep} goBack={goBack} skills={skills}>
       {/* Add skill selection UI for development skills here */}
     </EvaluationTemplate>
   );
 }
 
-DevelopmentSkills.propTypes = {
+TechnicalProficiencies.propTypes = {
   nextStep: PropTypes.func.isRequired,
   goBack: PropTypes.func.isRequired,
-  role: PropTypes.object.isRequired,
+  skills: PropTypes.object.isRequired,
 };
 
-export default DevelopmentSkills;
+export default TechnicalProficiencies;
