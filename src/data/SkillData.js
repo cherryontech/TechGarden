@@ -46,7 +46,7 @@ const skillData = [
       {
         name: "Responsive design techniques",
         description:
-          "Ensuring websites work well on various devices and screen sizes through responsive design. This is crucial for providing a consistent user experience across platforms",
+          "Ensuring websites work well on various devices and screen sizes through responsive design. This is crucial for providing a consistent user experience across platforms.",
         role: ["Developer", "UX Designer"],
       },
       {
@@ -93,7 +93,8 @@ const skillData = [
       },
       {
         name: "Design Thinking",
-        description: "description",
+        description:
+          "Design thinking is a practical and creative way to solve problems by considering users' thoughts, needs, and behaviors. It encourages collaboration and innovation by exploring multiple solutions to a problem, rather than just fixing it.",
         role: "UX Designer",
       },
       {
