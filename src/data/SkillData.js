@@ -82,7 +82,7 @@ const skillData = [
       {
         name: "Proficiency in graphic design concepts",
         description:
-          "Knowledge of graphic design concepts aids in creating visually compelling elements and assets. It helps cwork on overall aesthetic of the product.",
+          "Knowledge of graphic design concepts aids in creating visually compelling elements and assets. It helps work on overall aesthetic of the product.",
         role: "UX Designer",
       },
       {
