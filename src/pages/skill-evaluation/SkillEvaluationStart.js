@@ -11,7 +11,11 @@ import {
   ListboxOptions,
   Transition,
 } from "@headlessui/react";
-import { CheckIcon, ChevronUpDownIcon } from "@heroicons/react/20/solid";
+import {
+  CheckIcon,
+  ChevronUpDownIcon,
+  ExclamationCircleIcon,
+} from "@heroicons/react/20/solid";
 import AdministrativeCompetencies from "./AdministrativeCompetencies";
 import TechnicalProficiencies from "./TechnicalProficiencies";
 import InterpersonalSkills from "./InterpersonalSkills";
@@ -25,6 +29,7 @@ function SkillEvaluationStart({ onSubmit }) {
   const [cardsData, setCardsData] = useState([]);
   const [step, setStep] = useState(0);
   const [selectedSkills, setSelectedSkills] = useState([]);
+  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
@@ -37,9 +42,14 @@ function SkillEvaluationStart({ onSubmit }) {
   };
 
   const handleSubmit = () => {
+    if (selectedSkills.length === 0) {
+      setError("You must select at least one skill.");
+      return;
+    }
+    setError("");
     console.log("Submitting selected skills:", selectedSkills);
-    onSubmit(selectedSkills); // pass selected skills to the parent component
-    navigate("/career-recommendations"); // navigate to the recommendations page
+    onSubmit(selectedSkills);
+    navigate("/career-recommendations");
   };
 
   const nextStep = () => setStep((prevStep) => prevStep + 1);
@@ -201,6 +211,12 @@ function SkillEvaluationStart({ onSubmit }) {
             >
               Back
             </button>
+            {error && (
+              <div className="flex items-center text-red-600 bg-red-100 px-4 rounded-md shadow-md">
+                <ExclamationCircleIcon className="h-5 w-5 mr-2" />
+                <span>{error}</span>
+              </div>
+            )}
             <button
               onClick={step === 3 ? handleSubmit : nextStep}
               className="rounded-md shadow-lg text-base font-semibold text-midnight-moss bg-tropical-cyan hover:bg-oasis-blue justify-center px-9 md:px-12 py-3"
