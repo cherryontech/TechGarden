@@ -3,12 +3,9 @@ import { Checkbox } from "@headlessui/react";
 import { CheckCircleIcon } from "@heroicons/react/24/solid";
 
 function EvaluationTemplate({
-  goBack,
-  nextStep,
   skills,
   selectedSkills,
   children,
-  isLastPage,
   handleSkillChange,
 }) {
   const toggleSkill = (skill) => {
@@ -53,30 +50,12 @@ function EvaluationTemplate({
         ))}
 
         {children}
-        <div className="flex justify-between mt-12">
-          {goBack && (
-            <button
-              onClick={goBack}
-              className="rounded-md shadow-lg text-base font-semibold text-midnight-moss bg-light-gray hover:bg-darker-gray justify-center px-9 md:px-12 py-3"
-            >
-              Back
-            </button>
-          )}
-          <button
-            onClick={nextStep}
-            className="rounded-md shadow-lg text-base font-semibold text-midnight-moss bg-tropical-cyan hover:bg-oasis-blue justify-center px-9 md:px-12 py-3"
-          >
-            {isLastPage ? "Find My Career" : "Next"}
-          </button>
-        </div>
       </div>
     </div>
   );
 }
 
 EvaluationTemplate.propTypes = {
-  goBack: PropTypes.func,
-  nextStep: PropTypes.func.isRequired,
   skills: PropTypes.shape({
     title: PropTypes.string.isRequired,
     skills: PropTypes.arrayOf(
@@ -86,7 +65,7 @@ EvaluationTemplate.propTypes = {
       })
     ).isRequired,
   }).isRequired,
-  selectedSkills: PropTypes.array.isRequired, // Define selectedSkills prop
+  selectedSkills: PropTypes.array.isRequired,
   children: PropTypes.node,
   isLastPage: PropTypes.bool,
   handleSkillChange: PropTypes.func.isRequired,
