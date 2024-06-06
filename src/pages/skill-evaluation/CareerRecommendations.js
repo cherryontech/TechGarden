@@ -1,12 +1,23 @@
 import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
+import roleData from "../../data/RoleData";
 
 function CareerRecommendations({ results }) {
   const [recommendedRole, setRecommendedRole] = useState("");
   const [matchPercentage, setMatchPercentage] = useState(0);
+  const [otherRoles, setOtherRoles] = useState([]);
+  const [recommendedRoleDescription, setRecommendedRoleDescription] =
+    useState("");
+  const [recommendedRoleShortDescription, setRecommendedRoleShortDescription] =
+    useState("");
+  const [otherRolesShortDescriptions, setOtherRolesShortDescriptions] =
+    useState([]);
+  const [unselectedSkills, setUnselectedSkills] = useState([]);
+  const [matchingSkills, setMatchingSkills] = useState([]);
+  const [recommendedRoleImage, setRecommendedRoleImage] = useState(null);
 
   useEffect(() => {
-    // the count of selected skills for each role
+    // count of selected skills for each role
     const roleCounts = {};
     results.forEach((skill) => {
       const roles = Array.isArray(skill.role) ? skill.role : [skill.role];
@@ -15,54 +26,217 @@ function CareerRecommendations({ results }) {
       });
     });
 
-    // the role with the highest count of selected skills
-    let maxRoleCount = 0;
-    let recommendedRole = "";
-    Object.keys(roleCounts).forEach((role) => {
-      if (roleCounts[role] > maxRoleCount) {
-        maxRoleCount = roleCounts[role];
-        recommendedRole = role;
-      }
+    // calculate match percentages for all roles
+    const rolePercentages = Object.keys(roleCounts).map((role) => {
+      const roleInfo = roleData.find((r) => r.title === role);
+      const percentage = roleInfo
+        ? (roleCounts[role] / roleInfo.totalSkills) * 100
+        : 0;
+      return {
+        role,
+        percentage: Math.ceil(percentage),
+      };
     });
 
-    // if the user selects more skills for the recommended role than others
-    const totalSkillsForRecommendedRole = roleCounts[recommendedRole];
-    const otherRoles = Object.keys(roleCounts).filter(
-      (role) => role !== recommendedRole
-    );
-    const totalSkillsForOtherRoles = otherRoles.reduce(
-      (total, role) => total + roleCounts[role],
-      0
-    );
+    // sort roles by match percentage
+    rolePercentages.sort((a, b) => b.percentage - a.percentage);
 
-    if (
-      totalSkillsForRecommendedRole > totalSkillsForOtherRoles &&
-      totalSkillsForRecommendedRole > 0 &&
-      totalSkillsForRecommendedRole > results.length / 2
-    ) {
-      const percentage = (totalSkillsForRecommendedRole / results.length) * 100;
-      setMatchPercentage(percentage);
+    // set the recommended role and its match percentage
+    const recommended = rolePercentages[0];
+    if (recommended && recommended.percentage >= 50) {
+      setRecommendedRole(recommended.role);
+      setMatchPercentage(recommended.percentage);
+
+      // set long description and short descroption for recommended role
+      const roleInfo = roleData.find((r) => r.title === recommended.role);
+      setRecommendedRoleDescription(roleInfo ? roleInfo.longDescription : "");
+      setRecommendedRoleShortDescription(
+        roleInfo ? roleInfo.shortDescription : ""
+      );
+
+      // set recommended role image
+      setRecommendedRoleImage(roleInfo ? roleInfo.image : null);
+
+      // calculate unselected skills for recommended role
+      const selectedSkills = results.map((skill) => skill.name);
+      const unselected = roleInfo.skills.filter(
+        (skill) => !selectedSkills.includes(skill.name)
+      );
+      setUnselectedSkills(unselected);
+
+      // matching skills for recommended role
+      const matching = roleInfo.skills.filter((skill) =>
+        selectedSkills.includes(skill.name)
+      );
+      setMatchingSkills(matching);
+
+      // other roles to consider
+      const otherRolesData = rolePercentages.slice(1, 3);
+      setOtherRoles(otherRolesData);
+
+      // short description for other roles to consider
+      const otherRolesShortDesc = otherRolesData.map((role) => {
+        const roleInfo = roleData.find((r) => r.title === role.role);
+        return roleInfo ? roleInfo.shortDescription : "";
+      });
+      setOtherRolesShortDescriptions(otherRolesShortDesc);
     } else {
+      setRecommendedRole("");
       setMatchPercentage(0);
-    }
+      setRecommendedRoleDescription("");
+      setRecommendedRoleShortDescription("");
+      setUnselectedSkills([]);
+      setMatchingSkills([]);
+      setOtherRoles([]);
 
-    setRecommendedRole(recommendedRole);
+      // set all roles with less than 50% match
+      const otherRolesData = rolePercentages.slice(0, 3); // get top three roles
+      setOtherRoles(otherRolesData);
+
+      // set short descriptions for other roles to consider
+      const otherRolesShortDesc = otherRolesData.map((role) => {
+        const roleInfo = roleData.find((r) => r.title === role.role);
+        return roleInfo ? roleInfo.shortDescription : "";
+      });
+      setOtherRolesShortDescriptions(otherRolesShortDesc);
+    }
   }, [results]);
 
+  // generate the email content
+  const generateEmailContent = () => {
+    const subject = "Career Evaluation Results";
+    const body = `
+      Recommended Role: ${recommendedRole}
+      Match Percentage: ${matchPercentage}%
+      Role Description: ${recommendedRoleDescription}
+      
+      Skills to Improve:
+      ${unselectedSkills.map((skill) => `- ${skill.name}`).join("\n")}
+      
+      Current Matching Skills:
+      ${matchingSkills.map((skill) => `- ${skill.name}`).join("\n")}
+      
+      Other Roles to Consider:
+      ${otherRoles
+        .map(
+          (role) => `
+        - Role: ${role.role}
+          Percentage Match: ${role.percentage}%
+          Description: ${
+            roleData.find((r) => r.title === role.role)?.longDescription
+          }
+      `
+        )
+        .join("\n")}
+    `;
+    const mailtoLink = `mailto:?subject=${encodeURIComponent(
+      subject
+    )}&body=${encodeURIComponent(body)}`;
+    window.location.href = mailtoLink;
+  };
+
   return (
-    <div className="text-center">
-      <h2 className="text-2xl font-semibold">Career Recommendations</h2>
-      <p className="text-lg mt-4">
-        Based on your selected skills, we recommend you to explore the{" "}
-        <span className="font-semibold">{recommendedRole}</span> role
-        {matchPercentage > 50 && (
-          <span>
-            {" "}
-            with a match percentage of {matchPercentage.toFixed(2)}%.
-          </span>
-        )}
-        .
-      </p>
+    <div className="text-center my-40">
+      {recommendedRole ? (
+        <div className="mt-4">
+          <p className="text-2xl">Congratulations! </p>
+          <p>You are just a few skills away from being a </p>{" "}
+          <p className="font-semibold text-4xl">{recommendedRole}</p>
+          {recommendedRoleImage && (
+            <img
+              src={recommendedRoleImage}
+              alt={recommendedRole}
+              className="mt-2 mx-auto h-72 w-72"
+            />
+          )}
+          {recommendedRoleShortDescription && (
+            <>
+              <p className="mt-2 text-base">
+                {recommendedRoleShortDescription}
+              </p>
+            </>
+          )}
+          {matchPercentage > 50 && (
+            <>
+              <p> Your current skills match </p>
+              <p className="text-4xl"> {matchPercentage}%</p>
+              <p>of the top skills required in this position.</p>
+            </>
+          )}
+          {recommendedRoleDescription && (
+            <>
+              <p className="text-lg font-semibold mt-4">
+                The {recommendedRole} role
+              </p>
+              <p className="mt-2 text-base">{recommendedRoleDescription}</p>
+              <p className="text-lg font-semibold mt-4">
+                Grow your {recommendedRole} skills
+              </p>
+              {unselectedSkills.length > 0 && (
+                <div>
+                  <ul className="list-disc list-inside">
+                    {unselectedSkills.map((skill) => (
+                      <li key={skill.name} className="text-base font-medium">
+                        {skill.name}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {matchingSkills.length > 0 && (
+                <div>
+                  <p className="font-semibold text-lg mt-4">
+                    Your current matching skills
+                  </p>
+                  <ul className="list-disc list-inside">
+                    {matchingSkills.map((skill) => (
+                      <li key={skill.name} className="text-base font-medium">
+                        {skill.name}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+            </>
+          )}
+        </div>
+      ) : (
+        <p className="text-lg mt-4">
+          Congrats, your garden has the potential for multiple roles. Dive into
+          each opportunity and discover where your unique talents truly thrive.
+        </p>
+      )}
+      <div className="pt-4">
+        <button
+          onClick={generateEmailContent}
+          className="rounded-md border border-darker-cyan hover:bg-oasis-blue shadow-md text-base lg:text-lg font-semibold text-midnight-moss bg-tropical-cyan justify-center p-2 md:p-4 mt-6"
+        >
+          Email Evaluation Results
+        </button>
+      </div>
+
+      <div className="mt-4">
+        <h3 className="text-xl font-semibold">Other roles to consider</h3>
+        <ul className="mt-2">
+          {otherRoles.map((role, index) => (
+            <li key={role.role} className="text-lg mt-2 flex-row ">
+              {role.role}- {role.percentage}% skills match
+              {roleData.find((r) => r.title === role.role)?.image && (
+                <img
+                  src={roleData.find((r) => r.title === role.role)?.image}
+                  alt={role.role}
+                  className="h-72 w-72 mx-auto"
+                />
+              )}
+              {otherRolesShortDescriptions[index] && (
+                <p className="text-base">
+                  {otherRolesShortDescriptions[index]}
+                </p>
+              )}
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
