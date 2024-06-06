@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import PropTypes from "prop-types";
 import skillData from "../../data/SkillData";
 import roleData from "../../data/RoleData";
 import {
@@ -18,11 +20,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-function SkillEvaluationStart() {
+function SkillEvaluationStart({ onSubmit }) {
   const [selected, setSelected] = useState(null);
   const [cardsData, setCardsData] = useState([]);
   const [step, setStep] = useState(0);
   const [selectedSkills, setSelectedSkills] = useState([]);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setCardsData(roleData);
@@ -30,6 +34,12 @@ function SkillEvaluationStart() {
 
   const handleSkillChange = (newSelectedSkills) => {
     setSelectedSkills(newSelectedSkills);
+  };
+
+  const handleSubmit = () => {
+    console.log("Submitting selected skills:", selectedSkills);
+    onSubmit(selectedSkills); // pass selected skills to the parent component
+    navigate("/career-recommendations"); // navigate to the recommendations page
   };
 
   const nextStep = () => setStep((prevStep) => prevStep + 1);
@@ -158,37 +168,54 @@ function SkillEvaluationStart() {
         )}
       </div>
       <div className="text-center max-w-sm md:max-w-xl lg:max-w-2xl xl:max-w-4xl 2xl:max-w-5xl flex-row my-36">
-        {step === 1 && (
-          <AdministrativeCompetencies
-            nextStep={nextStep}
-            goBack={goBack}
-            skills={getCurrentSkill()}
-            selectedSkills={selectedSkills}
-            handleSkillChange={handleSkillChange}
-          />
+        {step > 0 && (
+          <div>
+            {step === 1 && (
+              <AdministrativeCompetencies
+                skills={getCurrentSkill()}
+                selectedSkills={selectedSkills}
+                handleSkillChange={handleSkillChange}
+              />
+            )}
+            {step === 2 && (
+              <TechnicalProficiencies
+                skills={getCurrentSkill()}
+                selectedSkills={selectedSkills}
+                handleSkillChange={handleSkillChange}
+              />
+            )}
+            {step === 3 && (
+              <InterpersonalSkills
+                skills={getCurrentSkill()}
+                selectedSkills={selectedSkills}
+                handleSkillChange={handleSkillChange}
+              />
+            )}
+          </div>
         )}
-        {step === 2 && (
-          <TechnicalProficiencies
-            nextStep={nextStep}
-            goBack={goBack}
-            skills={getCurrentSkill()}
-            selectedSkills={selectedSkills}
-            handleSkillChange={handleSkillChange}
-          />
-        )}
-        {step === 3 && (
-          <InterpersonalSkills
-            nextStep={nextStep}
-            goBack={goBack}
-            skills={getCurrentSkill()}
-            selectedSkills={selectedSkills}
-            handleSkillChange={handleSkillChange}
-            isLastPage={true}
-          />
+        {step > 0 && (
+          <div className="flex justify-between mt-12">
+            <button
+              onClick={goBack}
+              className="rounded-md shadow-lg text-base font-semibold text-midnight-moss bg-light-gray hover:bg-darker-gray justify-center px-9 md:px-12 py-3"
+            >
+              Back
+            </button>
+            <button
+              onClick={step === 3 ? handleSubmit : nextStep}
+              className="rounded-md shadow-lg text-base font-semibold text-midnight-moss bg-tropical-cyan hover:bg-oasis-blue justify-center px-9 md:px-12 py-3"
+            >
+              {step === 3 ? "Find My Career" : "Next"}
+            </button>
+          </div>
         )}
       </div>
     </>
   );
 }
+
+SkillEvaluationStart.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+};
 
 export default SkillEvaluationStart;
