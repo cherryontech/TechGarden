@@ -52,7 +52,14 @@ function SkillEvaluationStart({ onSubmit }) {
     navigate("/career-recommendations");
   };
 
-  const nextStep = () => setStep((prevStep) => prevStep + 1);
+  const nextStep = () => {
+    if (step === 0 && !selected) {
+      setError("You must select a role before proceeding.");
+      return;
+    }
+    setError("");
+    setStep((prevStep) => prevStep + 1);
+  };
 
   const goBack = () => setStep((prevStep) => prevStep - 1);
 
@@ -166,6 +173,12 @@ function SkillEvaluationStart({ onSubmit }) {
                 </>
               )}
             </Listbox>
+            {error && (
+              <div className="flex items-center text-red-600 bg-red-100 px-4 py-3 mt-4 rounded-md shadow-md">
+                <ExclamationCircleIcon className="h-5 w-5 mr-2" />
+                <span>{error}</span>
+              </div>
+            )}
             <div className="pt-36 flex items-center">
               <button
                 onClick={nextStep}
