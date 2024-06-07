@@ -10,11 +10,14 @@ function CareerRecommendations({ results }) {
     useState("");
   const [recommendedRoleShortDescription, setRecommendedRoleShortDescription] =
     useState("");
-  const [otherRolesShortDescriptions, setOtherRolesShortDescriptions] =
-    useState([]);
+  const [otherRolesDescriptions, setOtherRolesDescriptions] = useState([]);
   const [unselectedSkills, setUnselectedSkills] = useState([]);
   const [matchingSkills, setMatchingSkills] = useState([]);
   const [recommendedRoleImage, setRecommendedRoleImage] = useState(null);
+  const [otherRolesUnselectedSkills, setOtherRolesUnselectedSkills] = useState(
+    []
+  );
+  const [otherRolesMatchingSkills, setOtherRolesMatchingSkills] = useState([]);
 
   useEffect(() => {
     // count of selected skills for each role
@@ -74,12 +77,29 @@ function CareerRecommendations({ results }) {
       const otherRolesData = rolePercentages.slice(1, 3);
       setOtherRoles(otherRolesData);
 
-      // short description for other roles to consider
-      const otherRolesShortDesc = otherRolesData.map((role) => {
+      // long description, unselected skills, and matching skills for other roles to consider
+      const otherRolesDesc = [];
+      const otherRolesUnselected = [];
+      const otherRolesMatching = [];
+      otherRolesData.forEach((role) => {
         const roleInfo = roleData.find((r) => r.title === role.role);
-        return roleInfo ? roleInfo.shortDescription : "";
+        otherRolesDesc.push(roleInfo ? roleInfo.longDescription : "");
+        const unselectedForRole = roleInfo
+          ? roleInfo.skills.filter(
+              (skill) => !selectedSkills.includes(skill.name)
+            )
+          : [];
+        otherRolesUnselected.push(unselectedForRole);
+        const matchingForRole = roleInfo
+          ? roleInfo.skills.filter((skill) =>
+              selectedSkills.includes(skill.name)
+            )
+          : [];
+        otherRolesMatching.push(matchingForRole);
       });
-      setOtherRolesShortDescriptions(otherRolesShortDesc);
+      setOtherRolesDescriptions(otherRolesDesc);
+      setOtherRolesUnselectedSkills(otherRolesUnselected);
+      setOtherRolesMatchingSkills(otherRolesMatching);
     } else {
       setRecommendedRole("");
       setMatchPercentage(0);
@@ -93,12 +113,29 @@ function CareerRecommendations({ results }) {
       const otherRolesData = rolePercentages.slice(0, 3); // get top three roles
       setOtherRoles(otherRolesData);
 
-      // set short descriptions for other roles to consider
-      const otherRolesShortDesc = otherRolesData.map((role) => {
+      // set long descriptions, unselected skills, and matching skills for other roles to consider
+      const otherRolesDesc = [];
+      const otherRolesUnselected = [];
+      const otherRolesMatching = [];
+      otherRolesData.forEach((role) => {
         const roleInfo = roleData.find((r) => r.title === role.role);
-        return roleInfo ? roleInfo.shortDescription : "";
+        otherRolesDesc.push(roleInfo ? roleInfo.longDescription : "");
+        const unselectedForRole = roleInfo
+          ? roleInfo.skills.filter(
+              (skill) => !results.some((s) => s.name === skill.name)
+            )
+          : [];
+        otherRolesUnselected.push(unselectedForRole);
+        const matchingForRole = roleInfo
+          ? roleInfo.skills.filter((skill) =>
+              results.some((s) => s.name === skill.name)
+            )
+          : [];
+        otherRolesMatching.push(matchingForRole);
       });
-      setOtherRolesShortDescriptions(otherRolesShortDesc);
+      setOtherRolesDescriptions(otherRolesDesc);
+      setOtherRolesUnselectedSkills(otherRolesUnselected);
+      setOtherRolesMatchingSkills(otherRolesMatching);
     }
   }, [results]);
 
@@ -228,10 +265,34 @@ function CareerRecommendations({ results }) {
                   className="h-72 w-72 mx-auto"
                 />
               )}
-              {otherRolesShortDescriptions[index] && (
-                <p className="text-base">
-                  {otherRolesShortDescriptions[index]}
-                </p>
+              {otherRolesDescriptions[index] && (
+                <p className="text-base">{otherRolesDescriptions[index]}</p>
+              )}
+              <p className="text-base font-semibold">
+                Grow into a {role.role}:
+              </p>
+              {otherRolesUnselectedSkills[index] && (
+                <ul className="list-disc list-inside">
+                  {otherRolesUnselectedSkills[index].map((skill) => (
+                    <li key={skill.name} className="text-base font-medium">
+                      {skill.name}
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {otherRolesMatchingSkills[index] && (
+                <div>
+                  <p className="font-semibold text-lg mt-4">
+                    Your current matching skills
+                  </p>
+                  <ul className="list-disc list-inside">
+                    {otherRolesMatchingSkills[index].map((skill) => (
+                      <li key={skill.name} className="text-base font-medium">
+                        {skill.name}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               )}
             </li>
           ))}
