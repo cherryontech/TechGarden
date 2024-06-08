@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import roleData from "../../data/RoleData";
+import { ArrowRightIcon, CheckIcon } from "@heroicons/react/24/outline";
 
 function CareerRecommendations({ results }) {
   const [recommendedRole, setRecommendedRole] = useState("");
@@ -159,9 +160,6 @@ function CareerRecommendations({ results }) {
           (role) => `
         - Role: ${role.role}
           Percentage Match: ${role.percentage}%
-          Description: ${
-            roleData.find((r) => r.title === role.role)?.longDescription
-          }
       `
         )
         .join("\n")}
@@ -205,30 +203,33 @@ function CareerRecommendations({ results }) {
             </div>
           </div>
           {recommendedRoleDescription && (
-            <div className="mt-4 md:mt-12">
-              <div className="flex flex-col md:flex-row md:max-w-4xl items-start justify-center md:justify-between pt-3 pb-10 mx-8 md:pt-0 md:pb-0">
+            <div className="mt-4 md:mt-28">
+              <div className="flex flex-col md:flex-row md:max-w-4xl justify-center md:justify-between pt-3 pb-10 mx-8 md:pt-0 md:pb-0">
                 <div className="text-start md:w-5/12	">
-                  <p className="text-xl font-semibold mt-3 md:mt-0">
+                  <p className="text-xl font-semibold mt-4 md:mt-0">
                     The {recommendedRole} Role
                   </p>
                   <div className="mt-2 text-lg">
                     {recommendedRoleDescription}
                   </div>
                 </div>
-                <div className="text-start md:w-5/12">
-                  <p className="text-xl font-semibold mt-6 md:mt-0">
+                <div className="md:w-5/12 mt-4 md:mt-0">
+                  <p className="text-xl font-semibold mt-4 md:mt-0">
                     Grow Your {recommendedRole} Skills
                   </p>
                   {unselectedSkills.length > 0 && (
-                    <div className="mt-2">
-                      <ul className="flex flex-col items-center md:items-start space-y-4">
+                    <div className="mt-2 flex justify-center">
+                      <ul className="flex flex-col items-start space-y-4">
                         {unselectedSkills.map((skill, index) => (
                           <li
                             key={`${skill.name}-${index}`}
                             className="text-medium font-medium w-full"
                           >
-                            <button className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md  font-semibold text-midnight-moss bg-tropical-cyan w-full py-1.5">
-                              {skill.name}
+                            <button className="flex justify-between items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-80 md:w-full py-1.5 px-4">
+                              <span className="truncate pe-2">
+                                {skill.name}
+                              </span>
+                              <ArrowRightIcon className="h-5 w-5 text-midnight-moss" />
                             </button>
                           </li>
                         ))}
@@ -238,22 +239,27 @@ function CareerRecommendations({ results }) {
                 </div>
               </div>
               {matchingSkills.length > 0 && (
-                <div className="flex flex-col md:max-w-4xl items-start pt-3 pb-10 mx-4 md:mx-8 md:pt-0 md:pb-0">
-                  <p className="font-semibold text-start text-xl mt-4">
+                <div className="flex flex-col md:max-w-4xl md:items-start justify-center pt-3 pb-10 md:mx-8 md:pt-0 md:pb-0 md:mt-28">
+                  <p className="font-semibold text-xl mt-4">
                     Your Current Matching Skills
                   </p>
-                  <ul className="flex flex-wrap">
-                    {matchingSkills.map((skill, index) => (
-                      <li
-                        key={`${skill.name}-${index}`}
-                        className="text-start w-full md:w-auto pe-3 py-2"
-                      >
-                        <button className="truncate rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-80 md:w-full py-1.5 px-4">
-                          {skill.name}
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="flex justify-center">
+                    <ul className="md:flex flex-wrap">
+                      {matchingSkills.map((skill, index) => (
+                        <li
+                          key={`${skill.name}-${index}`}
+                          className="text-start w-full md:w-auto md:pe-3 py-2"
+                        >
+                          <button className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-80 md:w-full py-1.5 px-4">
+                            <span className="flex items-center justify-start w-4 h-4">
+                              <CheckIcon className="h-5 w-5 text-midnight-moss" />
+                            </span>
+                            <span className="truncate ps-2">{skill.name}</span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </div>
               )}
             </div>
@@ -265,22 +271,24 @@ function CareerRecommendations({ results }) {
           each opportunity and discover where your unique talents truly thrive.
         </p>
       )}
-      <div className="pt-4">
+      <div className="md:my-14">
         <button
           onClick={generateEmailContent}
-          className="rounded-md border border-darker-cyan hover:bg-oasis-blue shadow-md text-base lg:text-lg font-semibold text-midnight-moss bg-tropical-cyan justify-center p-2 md:p-4 mt-6"
+          className="rounded-md border border-darker-cyan hover:bg-oasis-blue shadow-md text-base lg:text-lg font-semibold text-midnight-moss bg-tropical-cyan justify-center p-3 md:p-4 mt-6"
         >
           Email Evaluation Results
         </button>
       </div>
 
-      <div className="mt-4">
+      <div className="mt-4 ">
         {otherRoles.map((role, index) => (
           <React.Fragment key={`${role.role}-${index}`}>
-            {role.role}- {role.percentage}% skills match
+            <div className="md:mt-28">
+              {role.role}- {role.percentage}% skills match
+            </div>
             <div
               key={`${role.role}-${index}`}
-              className="flex flex-col md:flex-row md:max-w-3xl md:mx-auto items-start pt-3 pb-10 mx-8 md:pt-0 md:pb-0"
+              className="flex flex-col md:flex-row md:max-w-4xl md:mx-auto items-start pt-3 pb-10 mx-8 md:pt-0 md:pb-0"
             >
               {roleData.find((r) => r.title === role.role)?.image && (
                 <img
@@ -298,38 +306,52 @@ function CareerRecommendations({ results }) {
                 )}
               </div>
             </div>
-            <p className="text-base font-semibold mt-4">
-              Grow into a {role.role}:
-            </p>
-            {otherRolesUnselectedSkills[index] && (
-              <ul className="list-disc list-inside">
-                {otherRolesUnselectedSkills[index].map((skill, index) => (
-                  <li
-                    key={`${skill.name}-${index}`}
-                    className="text-base font-medium"
-                  >
-                    {skill.name}
-                  </li>
-                ))}
-              </ul>
-            )}
-            {otherRolesMatchingSkills[index] && (
-              <div>
-                <p className="font-semibold text-lg mt-4">
-                  Your current matching skills
-                </p>
-                <ul className="list-disc list-inside">
-                  {otherRolesMatchingSkills[index].map((skill, index) => (
-                    <li
-                      key={`${skill.name}-${index}`}
-                      className="text-base font-medium"
-                    >
-                      {skill.name}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            )}
+            <div className="flex flex-col md:max-w-4xl md:items-start justify-center pt-3 pb-10 md:mx-8 md:pt-0 md:pb-0 md:mt-10">
+              <p className="font-semibold text-xl mt-4">
+                Grow Into a {role.role}
+              </p>
+              {otherRolesUnselectedSkills[index] && (
+                <div className="flex justify-center">
+                  <ul className="md:flex flex-wrap">
+                    {otherRolesUnselectedSkills[index].map((skill, index) => (
+                      <li
+                        key={`${skill.name}-${index}`}
+                        className="text-start w-full md:w-auto md:pe-3 py-2"
+                      >
+                        <button className="flex justify-between items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-80 md:w-full py-1.5 px-4">
+                          <span className="truncate pe-2">{skill.name}</span>
+                          <ArrowRightIcon className="h-5 w-5 text-midnight-moss" />
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {otherRolesMatchingSkills[index] && (
+                <div className="flex flex-col md:items-start justify-center pt-3 pb-10 md:pt-0 md:pb-0 md:mt-10">
+                  <p className="font-semibold text-xl mt-4">
+                    Your Current Matching Skills
+                  </p>
+                  <div className="flex justify-center">
+                    <ul className="md:flex flex-wrap">
+                      {otherRolesMatchingSkills[index].map((skill, index) => (
+                        <li
+                          key={`${skill.name}-${index}`}
+                          className="text-start w-full md:w-auto md:pe-3 py-2"
+                        >
+                          <button className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-80 md:w-full py-1.5 px-4">
+                            <span className="flex items-center justify-start w-4 h-4">
+                              <CheckIcon className="h-5 w-5 text-midnight-moss" />
+                            </span>
+                            <span className="truncate ps-2">{skill.name}</span>
+                          </button>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                </div>
+              )}
+            </div>
           </React.Fragment>
         ))}
       </div>
