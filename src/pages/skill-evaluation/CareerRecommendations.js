@@ -1,7 +1,13 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import roleData from "../../data/RoleData";
-import { ArrowRightIcon, CheckIcon } from "@heroicons/react/24/outline";
+import AllRoles from "../../assets/all-roles.png";
+import {
+  ArrowRightIcon,
+  CheckIcon,
+  ChevronUpIcon,
+  ChevronDownIcon,
+} from "@heroicons/react/24/outline";
 
 function CareerRecommendations({ results }) {
   const [recommendedRole, setRecommendedRole] = useState("");
@@ -19,6 +25,7 @@ function CareerRecommendations({ results }) {
     []
   );
   const [otherRolesMatchingSkills, setOtherRolesMatchingSkills] = useState([]);
+  const [accordionStates, setAccordionStates] = useState({});
 
   useEffect(() => {
     // count of selected skills for each role
@@ -170,8 +177,16 @@ function CareerRecommendations({ results }) {
     window.location.href = mailtoLink;
   };
 
+  // accordian
+  const toggleAccordion = (index) => {
+    setAccordionStates((prevStates) => ({
+      ...prevStates,
+      [index]: !prevStates[index],
+    }));
+  };
+
   return (
-    <div className="text-center my-28 md:my-40">
+    <div className="text-center mt-28 mb-20 md:mt-40 md:mb-40">
       {recommendedRole ? (
         <div className="mt-4">
           <div className="border-2 rounded border-light-orange flex flex-col md:flex-row md:max-w-4xl md:mx-auto items-center pt-3 pb-10 mx-8 md:pt-0 md:pb-0">
@@ -188,11 +203,13 @@ function CareerRecommendations({ results }) {
                 You are just a few skills away from being a
               </p>
               <p className="font-semibold text-4xl pt-3">{recommendedRole}</p>
+
               {recommendedRoleShortDescription && (
                 <p className="text-base pt-3">
                   {recommendedRoleShortDescription}
                 </p>
               )}
+
               {matchPercentage > 50 && (
                 <>
                   <p className="pt-3">Your current skills match</p>
@@ -202,6 +219,7 @@ function CareerRecommendations({ results }) {
               )}
             </div>
           </div>
+
           {recommendedRoleDescription && (
             <div className="mt-4 md:mt-28">
               <div className="flex flex-col md:flex-row md:max-w-4xl justify-center md:justify-between pt-3 pb-10 mx-8 md:pt-0 md:pb-0">
@@ -217,6 +235,7 @@ function CareerRecommendations({ results }) {
                   <p className="text-xl font-semibold mt-4 md:mt-0">
                     Grow Your {recommendedRole} Skills
                   </p>
+
                   {unselectedSkills.length > 0 && (
                     <div className="mt-2 flex justify-center">
                       <ul className="flex flex-col items-start space-y-4">
@@ -238,11 +257,12 @@ function CareerRecommendations({ results }) {
                   )}
                 </div>
               </div>
+
               {matchingSkills.length > 0 && (
                 <div className="flex flex-col md:max-w-4xl md:items-start justify-center pt-3 pb-10 md:mx-8 md:pt-0 md:pb-0 md:mt-28">
-                  <p className="font-semibold text-xl mt-4">
+                  <h6 className="font-semibold text-xl mt-4">
                     Your Current Matching Skills
-                  </p>
+                  </h6>
                   <div className="flex justify-center">
                     <ul className="md:flex flex-wrap">
                       {matchingSkills.map((skill, index) => (
@@ -266,10 +286,18 @@ function CareerRecommendations({ results }) {
           )}
         </div>
       ) : (
-        <p className="text-lg mt-4">
-          Congrats, your garden has the potential for multiple roles. Dive into
-          each opportunity and discover where your unique talents truly thrive.
-        </p>
+        <div className="flex flex-col md:flex-row md:max-w-4xl items-center pt-3 pb-10 mx-8 md:pt-0 md:pb-0">
+          <img
+            src={AllRoles}
+            alt="three animated persons on a computer"
+            className="w-full	md:h-80 md:w-80 md:mr-10"
+          />
+          <p className="text-2xl text-start mt-4 md:mt-0">
+            Congrats, your garden has the potential for multiple roles. Dive
+            into each opportunity and discover where your unique talents truly
+            thrive.
+          </p>
+        </div>
       )}
       <div className="md:my-14">
         <button
@@ -280,78 +308,104 @@ function CareerRecommendations({ results }) {
         </button>
       </div>
 
-      <div className="mt-4 ">
+      <div className="mx-3 md:m-0">
+        <h6 className="font-semibold text-xl pt-16 mb-2">Roles to Consider</h6>
         {otherRoles.map((role, index) => (
           <React.Fragment key={`${role.role}-${index}`}>
-            <div className="md:mt-28">
-              {role.role}- {role.percentage}% skills match
-            </div>
-            <div
-              key={`${role.role}-${index}`}
-              className="flex flex-col md:flex-row md:max-w-4xl md:mx-auto items-start pt-3 pb-10 mx-8 md:pt-0 md:pb-0"
-            >
-              {roleData.find((r) => r.title === role.role)?.image && (
-                <img
-                  src={roleData.find((r) => r.title === role.role)?.image}
-                  alt={role.role}
-                  className="w-full	md:h-80 md:w-80 md:mr-8 border-2 rounded border-light-orange"
-                />
-              )}
-              <div className="mt-4 md:mt-0 text-left space-y-3">
-                <h4 className="text-xl font-bold">The {role.role} Role</h4>
-                {otherRolesDescriptions[index] && (
-                  <div className="text-base">
-                    {otherRolesDescriptions[index]}
-                  </div>
-                )}
+            <div className="flex justify-between items-center border rounded border-green-blue p-4 mt-4">
+              <div className="flex justify-start items-center">
+                <p className="text-xl pe-4 md:pe-8">{role.role}</p>
+                <p>{role.percentage}% skills match</p>
               </div>
+              <button
+                className="text-midnight-moss"
+                onClick={() => toggleAccordion(index)}
+              >
+                {accordionStates[index] ? (
+                  <ChevronUpIcon className="w-6 h-6" />
+                ) : (
+                  <ChevronDownIcon className="w-6 h-6" />
+                )}
+              </button>
             </div>
-            <div className="flex flex-col md:max-w-4xl md:items-start justify-center pt-3 pb-10 md:mx-8 md:pt-0 md:pb-0 md:mt-10">
-              <p className="font-semibold text-xl mt-4">
-                Grow Into a {role.role}
-              </p>
-              {otherRolesUnselectedSkills[index] && (
-                <div className="flex justify-center">
-                  <ul className="md:flex flex-wrap">
-                    {otherRolesUnselectedSkills[index].map((skill, index) => (
-                      <li
-                        key={`${skill.name}-${index}`}
-                        className="text-start w-full md:w-auto md:pe-3 py-2"
-                      >
-                        <button className="flex justify-between items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-80 md:w-full py-1.5 px-4">
-                          <span className="truncate pe-2">{skill.name}</span>
-                          <ArrowRightIcon className="h-5 w-5 text-midnight-moss" />
-                        </button>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {otherRolesMatchingSkills[index] && (
-                <div className="flex flex-col md:items-start justify-center pt-3 pb-10 md:pt-0 md:pb-0 md:mt-10">
-                  <p className="font-semibold text-xl mt-4">
-                    Your Current Matching Skills
-                  </p>
-                  <div className="flex justify-center">
-                    <ul className="md:flex flex-wrap">
-                      {otherRolesMatchingSkills[index].map((skill, index) => (
-                        <li
-                          key={`${skill.name}-${index}`}
-                          className="text-start w-full md:w-auto md:pe-3 py-2"
-                        >
-                          <button className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-80 md:w-full py-1.5 px-4">
-                            <span className="flex items-center justify-start w-4 h-4">
-                              <CheckIcon className="h-5 w-5 text-midnight-moss" />
-                            </span>
-                            <span className="truncate ps-2">{skill.name}</span>
-                          </button>
-                        </li>
-                      ))}
-                    </ul>
+            {accordionStates[index] && (
+              <>
+                <div
+                  key={`${role.role}-${index}`}
+                  className="flex flex-col md:flex-row md:max-w-4xl md:mx-auto items-start mt-8 pb-10 mx-8 md:pt-0 md:pb-0"
+                >
+                  {roleData.find((r) => r.title === role.role)?.image && (
+                    <img
+                      src={roleData.find((r) => r.title === role.role)?.image}
+                      alt={role.role}
+                      className="w-full	md:h-80 md:w-80 md:mr-8 border-2 rounded border-light-orange"
+                    />
+                  )}
+                  <div className="mt-4 md:mt-0 text-left space-y-3">
+                    <h4 className="text-xl font-bold">The {role.role} Role</h4>
+                    {otherRolesDescriptions[index] && (
+                      <div className="text-base">
+                        {otherRolesDescriptions[index]}
+                      </div>
+                    )}
                   </div>
                 </div>
-              )}
-            </div>
+                <div className="flex flex-col md:max-w-4xl md:items-start justify-center pt-3 pb-10 md:mx-8 md:pt-0 md:pb-0 md:mt-10">
+                  <p className="font-semibold text-xl mt-4">
+                    Grow Into a {role.role}
+                  </p>
+                  {otherRolesUnselectedSkills[index] && (
+                    <div className="flex justify-center">
+                      <ul className="md:flex flex-wrap">
+                        {otherRolesUnselectedSkills[index].map(
+                          (skill, index) => (
+                            <li
+                              key={`${skill.name}-${index}`}
+                              className="text-start w-full md:w-auto md:pe-3 py-2"
+                            >
+                              <button className="flex justify-between items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-80 md:w-full py-1.5 px-4">
+                                <span className="truncate pe-2">
+                                  {skill.name}
+                                </span>
+                                <ArrowRightIcon className="h-5 w-5 text-midnight-moss" />
+                              </button>
+                            </li>
+                          )
+                        )}
+                      </ul>
+                    </div>
+                  )}
+                  {otherRolesMatchingSkills[index] && (
+                    <div className="flex flex-col md:items-start justify-center pt-3 pb-10 md:pt-0 md:pb-0 md:mt-10">
+                      <p className="font-semibold text-xl mt-4">
+                        Your Current Matching Skills
+                      </p>
+                      <div className="flex justify-center">
+                        <ul className="md:flex flex-wrap">
+                          {otherRolesMatchingSkills[index].map(
+                            (skill, index) => (
+                              <li
+                                key={`${skill.name}-${index}`}
+                                className="text-start w-full md:w-auto md:pe-3 py-2"
+                              >
+                                <button className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-80 md:w-full py-1.5 px-4">
+                                  <span className="flex items-center justify-start w-4 h-4">
+                                    <CheckIcon className="h-5 w-5 text-midnight-moss" />
+                                  </span>
+                                  <span className="truncate ps-2">
+                                    {skill.name}
+                                  </span>
+                                </button>
+                              </li>
+                            )
+                          )}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </>
+            )}
           </React.Fragment>
         ))}
       </div>

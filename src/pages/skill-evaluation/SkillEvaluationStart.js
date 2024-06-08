@@ -190,9 +190,9 @@ function SkillEvaluationStart({ onSubmit }) {
           </>
         )}
       </div>
-      <div className="text-center max-w-sm md:max-w-xl lg:max-w-2xl xl:max-w-4xl 2xl:max-w-5xl flex-row my-36">
+      <div className="text-center flex-row my-36">
         {step > 0 && (
-          <div>
+          <div className="max-w-sm md:max-w-xl lg:max-w-2xl xl:max-w-4xl 2xl:max-w-5xl">
             {step === 1 && (
               <AdministrativeCompetencies
                 skills={getCurrentSkill()}
@@ -217,7 +217,7 @@ function SkillEvaluationStart({ onSubmit }) {
           </div>
         )}
         {step > 0 && (
-          <div className="flex justify-between mt-12">
+          <div className="flex justify-between w-full p-4">
             <button
               onClick={goBack}
               className="rounded-md shadow-lg text-base font-semibold text-midnight-moss bg-light-gray hover:bg-darker-gray justify-center px-9 md:px-12 py-3"
