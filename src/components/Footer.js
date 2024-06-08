@@ -7,11 +7,23 @@ function Footer() {
     { name: "Product Manager", path: "/product-manager" },
     { name: "UX Designer", path: "/ux-designer" },
   ];
-  const skillsResources = ["Code", "Design", "Interpersonal", "Managerial"];
+  const skillsResources = ["Administrative", "Interpersonal", "Technical"];
   const socialIcons = [
-    { icon: "mdi:github", color: "#357F78" },
-    { icon: "ri:notion-fill", color: "#357F78" },
-    { icon: "mdi:linkedin", color: "#357F78" },
+    {
+      icon: "mdi:github",
+      color: "#357F78",
+      url: "https://github.com/cherryontech/TechGarden",
+    },
+    {
+      icon: "ri:notion-fill",
+      color: "#357F78",
+      url: "https://www.notion.so/cherryontech-org/CherryOnTech-4e9cbb7ab6d041de9f87506afd327979",
+    },
+    {
+      icon: "mdi:linkedin",
+      color: "#357F78",
+      url: "https://www.linkedin.com/company/cherry-on-tech/",
+    },
   ];
 
   return (
@@ -31,13 +43,19 @@ function Footer() {
           </p>
           <div className="flex md:hidden space-x-4">
             {socialIcons.map((social, index) => (
-              <Icon
+              <a
                 key={index}
-                icon={social.icon}
-                width="24"
-                height="24"
-                style={{ color: social.color }}
-              />
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Icon
+                  icon={social.icon}
+                  width="24"
+                  height="24"
+                  style={{ color: social.color }}
+                />
+              </a>
             ))}
           </div>
         </div>
@@ -65,7 +83,7 @@ function Footer() {
                   key={resource}
                   className="text-sm text-darker-cyan font-medium py-1"
                 >
-                  <Link>{resource}</Link>
+                  <Link to="#">{resource}</Link>
                 </li>
               ))}
             </ul>
@@ -78,13 +96,19 @@ function Footer() {
         </p>
         <div className="flex space-x-4 order-1 md:order-2 hidden md:flex">
           {socialIcons.map((social, index) => (
-            <Icon
+            <a
               key={index}
-              icon={social.icon}
-              width="24"
-              height="24"
-              style={{ color: social.color }}
-            />
+              href={social.url}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Icon
+                icon={social.icon}
+                width="24"
+                height="24"
+                style={{ color: social.color }}
+              />
+            </a>
           ))}
         </div>
       </div>
