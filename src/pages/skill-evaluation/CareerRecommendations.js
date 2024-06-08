@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import roleData from "../../data/RoleData";
 
@@ -173,68 +173,90 @@ function CareerRecommendations({ results }) {
   };
 
   return (
-    <div className="text-center my-40">
+    <div className="text-center my-28 md:my-40">
       {recommendedRole ? (
         <div className="mt-4">
-          <p className="text-2xl">Congratulations! </p>
-          <p>You are just a few skills away from being a </p>{" "}
-          <p className="font-semibold text-4xl">{recommendedRole}</p>
-          {recommendedRoleImage && (
-            <img
-              src={recommendedRoleImage}
-              alt={recommendedRole}
-              className="mt-2 mx-auto h-72 w-72"
-            />
-          )}
-          {recommendedRoleShortDescription && (
-            <>
-              <p className="mt-2 text-base">
-                {recommendedRoleShortDescription}
+          <div className="border-2 rounded border-light-orange flex flex-col md:flex-row md:max-w-4xl md:mx-auto items-center pt-3 pb-10 mx-8 md:pt-0 md:pb-0">
+            {recommendedRoleImage && (
+              <img
+                src={recommendedRoleImage}
+                alt={recommendedRole}
+                className="w-full	 md:h-80 md:w-80 md:mr-8"
+              />
+            )}
+            <div className="mt-4 md:mt-0 text-center">
+              <p className="text-2xl">Congratulations!</p>
+              <p className="text-lg pt-3">
+                You are just a few skills away from being a
               </p>
-            </>
-          )}
-          {matchPercentage > 50 && (
-            <>
-              <p> Your current skills match </p>
-              <p className="text-4xl"> {matchPercentage}%</p>
-              <p>of the top skills required in this position.</p>
-            </>
-          )}
+              <p className="font-semibold text-4xl pt-3">{recommendedRole}</p>
+              {recommendedRoleShortDescription && (
+                <p className="text-base pt-3">
+                  {recommendedRoleShortDescription}
+                </p>
+              )}
+              {matchPercentage > 50 && (
+                <>
+                  <p className="pt-3">Your current skills match</p>
+                  <p className="font-semibold text-4xl">{matchPercentage}%</p>
+                  <p>of the top skills required in this position.</p>
+                </>
+              )}
+            </div>
+          </div>
           {recommendedRoleDescription && (
-            <>
-              <p className="text-lg font-semibold mt-4">
-                The {recommendedRole} role
-              </p>
-              <p className="mt-2 text-base">{recommendedRoleDescription}</p>
-              <p className="text-lg font-semibold mt-4">
-                Grow your {recommendedRole} skills
-              </p>
-              {unselectedSkills.length > 0 && (
-                <div>
-                  <ul className="list-disc list-inside">
-                    {unselectedSkills.map((skill) => (
-                      <li key={skill.name} className="text-base font-medium">
-                        {skill.name}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {matchingSkills.length > 0 && (
-                <div>
-                  <p className="font-semibold text-lg mt-4">
-                    Your current matching skills
+            <div className="mt-4 md:mt-12">
+              <div className="flex flex-col md:flex-row md:max-w-4xl items-start justify-center md:justify-between pt-3 pb-10 mx-8 md:pt-0 md:pb-0">
+                <div className="text-start md:w-5/12	">
+                  <p className="text-xl font-semibold mt-3 md:mt-0">
+                    The {recommendedRole} Role
                   </p>
-                  <ul className="list-disc list-inside">
-                    {matchingSkills.map((skill) => (
-                      <li key={skill.name} className="text-base font-medium">
-                        {skill.name}
+                  <div className="mt-2 text-lg">
+                    {recommendedRoleDescription}
+                  </div>
+                </div>
+                <div className="text-start md:w-5/12">
+                  <p className="text-xl font-semibold mt-6 md:mt-0">
+                    Grow Your {recommendedRole} Skills
+                  </p>
+                  {unselectedSkills.length > 0 && (
+                    <div className="mt-2">
+                      <ul className="flex flex-col items-center md:items-start space-y-4">
+                        {unselectedSkills.map((skill, index) => (
+                          <li
+                            key={`${skill.name}-${index}`}
+                            className="text-medium font-medium w-full"
+                          >
+                            <button className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md  font-semibold text-midnight-moss bg-tropical-cyan w-full py-1.5">
+                              {skill.name}
+                            </button>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )}
+                </div>
+              </div>
+              {matchingSkills.length > 0 && (
+                <div className="flex flex-col md:max-w-4xl items-start pt-3 pb-10 mx-4 md:mx-8 md:pt-0 md:pb-0">
+                  <p className="font-semibold text-start text-xl mt-4">
+                    Your Current Matching Skills
+                  </p>
+                  <ul className="flex flex-wrap">
+                    {matchingSkills.map((skill, index) => (
+                      <li
+                        key={`${skill.name}-${index}`}
+                        className="text-start w-full md:w-auto pe-3 py-2"
+                      >
+                        <button className="truncate rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-80 md:w-full py-1.5 px-4">
+                          {skill.name}
+                        </button>
                       </li>
                     ))}
                   </ul>
                 </div>
               )}
-            </>
+            </div>
           )}
         </div>
       ) : (
@@ -253,50 +275,63 @@ function CareerRecommendations({ results }) {
       </div>
 
       <div className="mt-4">
-        <h3 className="text-xl font-semibold">Other roles to consider</h3>
-        <ul className="mt-2">
-          {otherRoles.map((role, index) => (
-            <li key={role.role} className="text-lg mt-2 flex-row ">
-              {role.role}- {role.percentage}% skills match
+        {otherRoles.map((role, index) => (
+          <React.Fragment key={`${role.role}-${index}`}>
+            {role.role}- {role.percentage}% skills match
+            <div
+              key={`${role.role}-${index}`}
+              className="flex flex-col md:flex-row md:max-w-3xl md:mx-auto items-start pt-3 pb-10 mx-8 md:pt-0 md:pb-0"
+            >
               {roleData.find((r) => r.title === role.role)?.image && (
                 <img
                   src={roleData.find((r) => r.title === role.role)?.image}
                   alt={role.role}
-                  className="h-72 w-72 mx-auto"
+                  className="w-full	md:h-80 md:w-80 md:mr-8 border-2 rounded border-light-orange"
                 />
               )}
-              {otherRolesDescriptions[index] && (
-                <p className="text-base">{otherRolesDescriptions[index]}</p>
-              )}
-              <p className="text-base font-semibold">
-                Grow into a {role.role}:
-              </p>
-              {otherRolesUnselectedSkills[index] && (
+              <div className="mt-4 md:mt-0 text-left space-y-3">
+                <h4 className="text-xl font-bold">The {role.role} Role</h4>
+                {otherRolesDescriptions[index] && (
+                  <div className="text-base">
+                    {otherRolesDescriptions[index]}
+                  </div>
+                )}
+              </div>
+            </div>
+            <p className="text-base font-semibold mt-4">
+              Grow into a {role.role}:
+            </p>
+            {otherRolesUnselectedSkills[index] && (
+              <ul className="list-disc list-inside">
+                {otherRolesUnselectedSkills[index].map((skill, index) => (
+                  <li
+                    key={`${skill.name}-${index}`}
+                    className="text-base font-medium"
+                  >
+                    {skill.name}
+                  </li>
+                ))}
+              </ul>
+            )}
+            {otherRolesMatchingSkills[index] && (
+              <div>
+                <p className="font-semibold text-lg mt-4">
+                  Your current matching skills
+                </p>
                 <ul className="list-disc list-inside">
-                  {otherRolesUnselectedSkills[index].map((skill) => (
-                    <li key={skill.name} className="text-base font-medium">
+                  {otherRolesMatchingSkills[index].map((skill, index) => (
+                    <li
+                      key={`${skill.name}-${index}`}
+                      className="text-base font-medium"
+                    >
                       {skill.name}
                     </li>
                   ))}
                 </ul>
-              )}
-              {otherRolesMatchingSkills[index] && (
-                <div>
-                  <p className="font-semibold text-lg mt-4">
-                    Your current matching skills
-                  </p>
-                  <ul className="list-disc list-inside">
-                    {otherRolesMatchingSkills[index].map((skill) => (
-                      <li key={skill.name} className="text-base font-medium">
-                        {skill.name}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
+              </div>
+            )}
+          </React.Fragment>
+        ))}
       </div>
     </div>
   );
