@@ -7,8 +7,36 @@ const roleData = [
     title: "Developer",
     shortDescription:
       "The code ninjas who turn design dreams into functional, responsive reality.",
-    longDescription:
-      "A web developer is a skilled professional who crafts and sustains websites through a comprehensive understanding of programming languages, databases, and frameworks. They meticulously ensure both functionality and performance, emphasizing client-side development to create responsive, interactive, and visually captivating user interfaces. Simultaneously, they dive into server-side development, constructing the intricate logic and database architecture that form the backbone of web applications and services. Depending on the size and scope of a project, client and company, a web developer may specialize in one or more of these areas or take on a combination of responsibilities. 1. Front-end developer, 2. Back-end Developer, 3. Full-stack Developer, 4. Web Designer, 5. Dev-ops Engineer, 6. Web Accessibility Specialist",
+    longDescription: (
+      <>
+        <p>
+          A web developer is a skilled professional who crafts and sustains
+          websites through a comprehensive understanding of programming
+          languages, databases, and frameworks. They meticulously ensure both
+          functionality and performance, emphasizing client-side development to
+          create responsive, interactive, and visually captivating user
+          interfaces. Simultaneously, they dive into server-side development,
+          constructing the intricate logic and database architecture that form
+          the backbone of web applications and services.
+        </p>
+        <br />
+        <p>
+          Depending on the size and scope of a project, client and company, a
+          web developer may specialize in one or more of these areas or take on
+          a combination of responsibilities:
+        </p>
+        <ul>
+          <li key="front-end developer">1. Front-end developer</li>
+          <li key="back-end developer">2. Back-end Developer</li>
+          <li key="full-stack developer">3. Full-stack Developer</li>
+          <li key="web designer">4. Web Designer</li>
+          <li key="dev-ops engineer">5. Dev-ops Engineer</li>
+          <li key="web accessibility specialist">
+            6. Web Accessibility Specialist
+          </li>
+        </ul>
+      </>
+    ),
     skills: [
       {
         name: "Responsive design techniques",
@@ -94,8 +122,20 @@ const roleData = [
     title: "Product Manager",
     shortDescription:
       "The visionaries who steer the product ship, balancing user desires and business ambitions.",
-    longDescription:
-      "Product Managers, often referred to as Visionaries, play a crucial role in shepherding a product from its initial conception to its final execution. They coordinate teams, schedules, and resources, ensuring that projects progress smoothly and are completed within designated timeframes and budgets. With a keen focus on both user needs and overarching business objectives, they drive the development process from concept to launch, ensuring that the end result aligns with the envisioned goals.",
+    longDescription: (
+      <>
+        <p>
+          Product Managers, often referred to as Visionaries, play a crucial
+          role in shepherding a product from its initial conception to its final
+          execution. They coordinate teams, schedules, and resources, ensuring
+          that projects progress smoothly and are completed within designated
+          timeframes and budgets. With a keen focus on both user needs and
+          overarching business objectives, they drive the development process
+          from concept to launch, ensuring that the end result aligns with the
+          envisioned goals.
+        </p>
+      </>
+    ),
     skills: [
       {
         name: "Market research and analysis",
@@ -191,8 +231,32 @@ const roleData = [
     title: "UX Designer",
     shortDescription:
       "The creative wizards who make sure using an app feels as good as it looks.",
-    longDescription:
-      "A UX/UI Designer crafts user experiences for digital products, ensuring they are usable, accessible, and visually appealing. They conduct research to comprehend user behaviors and needs, shaping product design accordingly. With a keen eye for visual aesthetics, they create interfaces that are intuitive and align with brand guidelines, fostering a seamless and engaging user experience. Within the UI/UX Designer role, several specific roles and responsibilities are typically encompassed: 1. UX Researcher, 2. Information Architect, 3. Interaction Designer, 4. Visual Designer, 5. UX Writer, 6. UI Designer, 7. Product Strategist",
+    longDescription: (
+      <>
+        <p>
+          A UX/UI Designer crafts user experiences for digital products,
+          ensuring they are usable, accessible, and visually appealing. They
+          conduct research to comprehend user behaviors and needs, shaping
+          product design accordingly. With a keen eye for visual aesthetics,
+          they create interfaces that are intuitive and align with brand
+          guidelines, fostering a seamless and engaging user experience.{" "}
+        </p>
+        <br />
+        <p>
+          Within the UI/UX Designer role, several specific roles and
+          responsibilities are typically encompassed:
+        </p>
+        <ul>
+          <li key="ux researcher">1. UX Researcher</li>
+          <li key="information architect">2. Information Architect</li>
+          <li key="interaction designer">3. Interaction Designer</li>
+          <li key="visual designer">4. Visual Designer</li>
+          <li key="ux writer">5. UX Writer</li>
+          <li key="ui designer">6. UI Designer</li>
+          <li key="product strategist">7. Product Strategist</li>
+        </ul>
+      </>
+    ),
     skills: [
       {
         name: "Market research and analysis",
