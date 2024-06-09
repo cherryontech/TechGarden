@@ -2,15 +2,15 @@ import roleData from "../data/RoleData";
 
 function TechRoles() {
   return (
-    <div className="md:max-w-2xl lg:max-w-4xl my-24 md:my-32">
-      <h2 className="text-xl md:text-3xl font-semibold text-midnight-moss pb-9 md:pb-12">
+    <div className="md:max-w-2xl lg:max-w-4xl xl:max-w-5xl my-24 md:my-32">
+      <h2 className="text-2xl md:text-3xl font-semibold text-midnight-moss pb-9 md:pb-12">
         Discover Tech Roles
       </h2>
-      <div className="flex flex-col md:flex-row gap-11">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-10">
         {roleData.map((role, index) => (
           <div
             key={index}
-            className="flex flex-col p-6 text-gray-700 bg-transparent shadow-lg max-w-xs"
+            className="flex flex-col p-6 bg-transparent shadow-lg max-w-xs"
           >
             <div className="shadow border-2 border-light-orange rounded-sm">
               <img
@@ -23,7 +23,7 @@ function TechRoles() {
               <p className="text-xl font-bold text-midnight-moss pt-2">
                 {role.title}
               </p>
-              <p className="text-base text-midnight-moss pt-2">
+              <p className="sm:text-sm lg:text-base text-midnight-moss pt-2">
                 {role.shortDescription}
               </p>
               <div className="flex flex-wrap pt-2">
