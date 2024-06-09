@@ -5,13 +5,14 @@ import Home from "./pages/Home";
 import TechRoles from "./pages/TechRoles";
 import SkillEvaluationStart from "./pages/skill-evaluation/SkillEvaluationStart";
 import CareerRecommendations from "./pages/skill-evaluation/CareerRecommendations";
-import KnowledgeHub from "./pages/KnowledgeHub";
+import KnowledgeHub from "./pages/skills/SkillsList";
 import Developer from "./pages/positions/Developer";
 import ProductManager from "./pages/positions/ProductManager";
 import UXDesigner from "./pages/positions/UXDesigner";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
 import "./App.css";
+import Skills from "./pages/skills/Skills";
 
 function App() {
   const [formSubmitted, setFormSubmitted] = useState(false);
@@ -34,6 +35,7 @@ function App() {
             element={<SkillEvaluationStart onSubmit={handleFormSubmit} />}
           />
           <Route path="/knowledge-hub" element={<KnowledgeHub />} />
+          <Route path="/knowledge-hub/:skill" element={<Skills />} />
           <Route path="/developer" element={<Developer />} />
           <Route path="/product-manager" element={<ProductManager />} />
           <Route path="/ux-designer" element={<UXDesigner />} />
