@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import skillData from "../../data/SkillData";
 
 function SkillsList() {
+  const handleLinkClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="max-w-xs md:max-w-2xl lg:max-w-4xl xl:max-w-6xl pt-28 pb-20 md:pt-36">
       <h2 className="text-2xl md:text-3xl font-semibold text-midnight-moss pb-9 md:pb-12">
@@ -23,6 +27,7 @@ function SkillsList() {
                     <Link
                       to={`/knowledge-hub/${encodeURIComponent(skill.name)}`}
                       className="pe-2 text-gray-moss hover:text-darker-cyan"
+                      onClick={handleLinkClick}
                     >
                       {skill.name}
                     </Link>

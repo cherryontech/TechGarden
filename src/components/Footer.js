@@ -26,6 +26,10 @@ function Footer() {
     },
   ];
 
+  const handleLinkClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <footer className="px-4 md:px-24 py-10 border-t-2 border-green-blue text-gray-moss font-sans">
       <div className="flex flex-col md:flex-row md:justify-between md:items-start py-5">
@@ -68,7 +72,9 @@ function Footer() {
                   key={role.name}
                   className="text-sm text-darker-cyan font-medium py-1"
                 >
-                  <Link to={role.path}>{role.name}</Link>
+                  <Link to={role.path} onClick={handleLinkClick}>
+                    {role.name}
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -357,11 +357,11 @@ const skillData = [
         description:
           "Effective leadership and team management motivate and guide teams towards achieving project goals. It involves clear communication, delegation, and conflict resolution.",
         role: "Product Manager",
-        related: ["Communication and interpersonal skills"],
+        related: ["Communication and interpersonal"],
         resources: [],
       },
       {
-        name: "Communication and interpersonal skills",
+        name: "Communication and interpersonal",
         description:
           "Strong communication and interpersonal skills facilitate collaboration and understanding among team members and stakeholders. They are essential for conveying ideas and resolving issues.",
         role: ["Developer", "Product Manager", "UX Designer"],
