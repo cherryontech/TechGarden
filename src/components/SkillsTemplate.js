@@ -6,6 +6,10 @@ import { Link } from "react-router-dom";
 function SkillsTemplate({ skill }) {
   const roles = Array.isArray(skill.role) ? skill.role : [skill.role];
 
+  const handleLinkClick = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <div className="max-w-xs md:max-w-2xl lg:max-w-3xl xl:max-w-5xl pt-28 pb-20 md:pt-36">
       <div className="flex flex-col md:flex-row items-start">
@@ -52,6 +56,7 @@ function SkillsTemplate({ skill }) {
                   <Link
                     to={`/knowledge-hub/${encodeURIComponent(relatedSkill)}`}
                     className="flex justify-between items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-80 md:w-full py-1.5 px-4"
+                    onClick={handleLinkClick}
                   >
                     <span className="truncate pe-2">{relatedSkill}</span>
                     <ArrowRightIcon className="h-5 w-5 text-midnight-moss" />
@@ -76,6 +81,7 @@ function SkillsTemplate({ skill }) {
                     role.toLowerCase().replace(/\s+/g, "-")
                   )}`}
                   className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-80 md:w-full py-1.5 px-4"
+                  onClick={handleLinkClick}
                 >
                   <span className="flex items-center justify-start w-4 h-4">
                     <CheckIcon className="h-5 w-5 text-midnight-moss" />

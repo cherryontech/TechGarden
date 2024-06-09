@@ -1,5 +1,6 @@
 import PropTypes from "prop-types";
 import roleData from "../data/RoleData";
+
 import { ArrowRightIcon } from "@heroicons/react/24/outline";
 
 function TechPositionTemplate({ roleTitle }) {
@@ -35,15 +36,16 @@ function TechPositionTemplate({ roleTitle }) {
         </h4>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {technicalSkills.map((skill, index) => (
-            <button
+            <a
               key={`${skill.title}-${index}`}
+              href={`/knowledge-hub/${encodeURIComponent(skill.name)}`}
               className="flex justify-between items-center text-base rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-80 lg:w-96 py-1.5 px-4"
             >
               <span className="truncate pe-2">{skill.name}</span>
               <div className="arrow-container">
                 <ArrowRightIcon className="h-5 w-5 text-midnight-moss" />
               </div>
-            </button>
+            </a>
           ))}
         </div>
       </div>
@@ -54,15 +56,16 @@ function TechPositionTemplate({ roleTitle }) {
         </h4>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {softSkills.map((skill, index) => (
-            <button
+            <a
               key={`${skill.title}-${index}`}
+              href={`/knowledge-hub/${encodeURIComponent(skill.name)}`}
               className="flex justify-between items-center text-base rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-80 lg:w-96 py-1.5 px-4"
             >
               <span className="truncate pe-1">{skill.name}</span>
               <div className="arrow-container">
                 <ArrowRightIcon className="h-5 w-5 text-midnight-moss" />
               </div>
-            </button>
+            </a>
           ))}
         </div>
       </div>

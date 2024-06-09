@@ -47,9 +47,9 @@ function SkillEvaluationStart({ onSubmit }) {
       return;
     }
     setError("");
-    console.log("Submitting selected skills:", selectedSkills);
     onSubmit(selectedSkills);
     navigate("/career-recommendations");
+    window.scrollTo(0, 0);
   };
 
   const nextStep = () => {
@@ -59,9 +59,13 @@ function SkillEvaluationStart({ onSubmit }) {
     }
     setError("");
     setStep((prevStep) => prevStep + 1);
+    window.scrollTo(0, 0);
   };
 
-  const goBack = () => setStep((prevStep) => prevStep - 1);
+  const goBack = () => {
+    setStep((prevStep) => prevStep - 1);
+    window.scrollTo(0, 0);
+  };
 
   const getCurrentSkill = () => {
     switch (step) {

@@ -23,10 +23,15 @@ const navLinks = [
   { name: "Knowledge Hub", path: "/knowledge-hub" },
 ];
 
+const handleLinkClick = () => {
+  window.scrollTo(0, 0);
+};
+
 const MenuLink = ({ name, path }) => (
   <Link
     to={path}
     className="text-sm leading-6 text-gray-600 hover:text-gray-800"
+    onClick={handleLinkClick}
   >
     {name}
   </Link>
@@ -44,6 +49,7 @@ const DropdownMenu = ({ title, items }) => {
   const handleClick = (e) => {
     e.preventDefault();
     history("/tech-roles");
+    window.scrollTo(0, 0);
   };
 
   return (
@@ -82,6 +88,7 @@ const DropdownMenu = ({ title, items }) => {
                     key={item.name}
                     to={item.path}
                     className="flex items-start rounded-lg p-2 transition duration-150 ease-in-out hover:bg-white"
+                    onClick={handleLinkClick}
                   >
                     <div className="ml-4">
                       <p className="text-sm text-gray-700">{item.name}</p>
@@ -116,7 +123,11 @@ function Navbar() {
         className="fixed top-0 left-0 right-0 z-10 flex justify-between md:justify-start items-center px-3 md:px-6 bg-oasis-blue h-16 text-base font-medium font-sans"
         aria-label="Navigation Menu"
       >
-        <Link to="/" className="text-2xl font-semibold hover:text-gray-600">
+        <Link
+          to="/"
+          onClick={handleLinkClick}
+          className="text-2xl font-semibold hover:text-gray-600"
+        >
           TechGarden
         </Link>
         <div className="flex md:hidden">
@@ -148,6 +159,7 @@ function Navbar() {
             <Link
               to="/tech-roles"
               className="-mx-3 flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base leading-7 text-gray-600 hover:text-gray-800 hover:bg-gray-50"
+              onClick={handleLinkClick}
             >
               Discover Roles
             </Link>
@@ -156,6 +168,7 @@ function Navbar() {
                 key={link.name}
                 to={link.path}
                 className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-600 hover:text-gray-800 hover:bg-gray-50"
+                onClick={handleLinkClick}
               >
                 {link.name}
               </Link>

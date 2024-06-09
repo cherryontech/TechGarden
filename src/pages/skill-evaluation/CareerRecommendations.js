@@ -197,7 +197,7 @@ function CareerRecommendations({ results }) {
                 className="w-full	 md:h-80 md:w-80 md:mr-8"
               />
             )}
-            <div className="mt-4 md:mt-0 text-center">
+            <div className="mt-4 lg:mt-0 text-center">
               <p className="text-2xl">Congratulations!</p>
               <p className="text-lg pt-3">
                 You are just a few skills away from being a
@@ -205,7 +205,7 @@ function CareerRecommendations({ results }) {
               <p className="font-semibold text-4xl pt-3">{recommendedRole}</p>
 
               {recommendedRoleShortDescription && (
-                <p className="text-base pt-3">
+                <p className="text-base pt-3 ps-1 pe-1 md:ps-0 md:pe-1">
                   {recommendedRoleShortDescription}
                 </p>
               )}
@@ -214,7 +214,9 @@ function CareerRecommendations({ results }) {
                 <>
                   <p className="pt-3">Your current skills match</p>
                   <p className="font-semibold text-4xl">{matchPercentage}%</p>
-                  <p>of the top skills required in this position.</p>
+                  <p className="md:pb-4 lg:pb-0">
+                    of the top skills required in this position.
+                  </p>
                 </>
               )}
             </div>
@@ -223,7 +225,7 @@ function CareerRecommendations({ results }) {
           {recommendedRoleDescription && (
             <div className="mt-4 md:mt-28">
               <div className="flex flex-col md:flex-row md:max-w-4xl justify-center md:justify-between pt-3 pb-10 mx-8 md:pt-0 md:pb-0">
-                <div className="text-start md:w-5/12	">
+                <div className="text-start md:w-5/12">
                   <p className="text-xl font-semibold mt-4 md:mt-0">
                     The {recommendedRole} Role
                   </p>
@@ -244,12 +246,21 @@ function CareerRecommendations({ results }) {
                             key={`${skill.name}-${index}`}
                             className="text-medium font-medium w-full"
                           >
-                            <button className="flex justify-between items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-80 md:w-full py-1.5 px-4">
-                              <span className="truncate pe-2">
+                            <a
+                              href={`/knowledge-hub/${encodeURIComponent(
+                                skill.name
+                              )}`}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="flex justify-between items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-80 lg:w-96 py-1.5 px-4"
+                            >
+                              <span className="truncate pe-1">
                                 {skill.name}
                               </span>
-                              <ArrowRightIcon className="h-5 w-5 text-midnight-moss" />
-                            </button>
+                              <div className="arrow-container">
+                                <ArrowRightIcon className="h-5 w-5 text-midnight-moss" />
+                              </div>
+                            </a>
                           </li>
                         ))}
                       </ul>
@@ -270,12 +281,19 @@ function CareerRecommendations({ results }) {
                           key={`${skill.name}-${index}`}
                           className="text-start w-full md:w-auto md:pe-3 py-2"
                         >
-                          <button className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-80 md:w-full py-1.5 px-4">
+                          <a
+                            href={`/knowledge-hub/${encodeURIComponent(
+                              skill.name
+                            )}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-80 md:w-full py-1.5 px-4"
+                          >
                             <span className="flex items-center justify-start w-4 h-4">
                               <CheckIcon className="h-5 w-5 text-midnight-moss" />
                             </span>
                             <span className="truncate ps-2">{skill.name}</span>
-                          </button>
+                          </a>
                         </li>
                       ))}
                     </ul>
@@ -363,12 +381,19 @@ function CareerRecommendations({ results }) {
                               key={`${skill.name}-${index}`}
                               className="text-start w-full md:w-auto md:pe-3 py-2"
                             >
-                              <button className="flex justify-between items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-80 md:w-full py-1.5 px-4">
+                              <a
+                                href={`/knowledge-hub/${encodeURIComponent(
+                                  skill.name
+                                )}`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex justify-between items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-80 md:w-full py-1.5 px-4"
+                              >
                                 <span className="truncate pe-2">
                                   {skill.name}
                                 </span>
                                 <ArrowRightIcon className="h-5 w-5 text-midnight-moss" />
-                              </button>
+                              </a>
                             </li>
                           )
                         )}
@@ -388,14 +413,21 @@ function CareerRecommendations({ results }) {
                                 key={`${skill.name}-${index}`}
                                 className="text-start w-full md:w-auto md:pe-3 py-2"
                               >
-                                <button className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-80 md:w-full py-1.5 px-4">
+                                <a
+                                  href={`/knowledge-hub/${encodeURIComponent(
+                                    skill.name
+                                  )}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-80 md:w-full py-1.5 px-4"
+                                >
                                   <span className="flex items-center justify-start w-4 h-4">
                                     <CheckIcon className="h-5 w-5 text-midnight-moss" />
                                   </span>
                                   <span className="truncate ps-2">
                                     {skill.name}
                                   </span>
-                                </button>
+                                </a>
                               </li>
                             )
                           )}
