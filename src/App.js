@@ -8,7 +8,7 @@ import CareerRecommendations from "./pages/skill-evaluation/CareerRecommendation
 import KnowledgeHub from "./pages/KnowledgeHub";
 import Developer from "./pages/positions/Developer";
 import ProductManager from "./pages/positions/ProductManager";
-import UXDesigner from "./pages/positions/UXDesginer";
+import UXDesigner from "./pages/positions/UXDesigner";
 import Footer from "./components/Footer";
 import NotFound from "./pages/NotFound";
 import "./App.css";

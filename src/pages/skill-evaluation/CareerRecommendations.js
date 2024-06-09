@@ -186,10 +186,10 @@ function CareerRecommendations({ results }) {
   };
 
   return (
-    <div className="text-center mt-28 mb-20 md:mt-40 md:mb-40">
+    <div className="md:max-w-2xl lg:max-w-4xl text-center mt-28 mb-20 md:mt-40 md:mb-40">
       {recommendedRole ? (
         <div className="mt-4">
-          <div className="border-2 rounded border-light-orange flex flex-col md:flex-row md:max-w-4xl md:mx-auto items-center pt-3 pb-10 mx-8 md:pt-0 md:pb-0">
+          <div className="border-2 rounded border-light-orange flex flex-col md:flex-row md:mx-auto items-center pt-3 pb-10 mx-8 md:pt-0 md:pb-0">
             {recommendedRoleImage && (
               <img
                 src={recommendedRoleImage}
