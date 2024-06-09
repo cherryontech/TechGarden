@@ -16,12 +16,18 @@ function Home() {
           craft a strategic plan for your next steps, guiding your path to
           success.
         </p>
-        <div className="flex justify-center">
+        <div className="flex flex-col lg:flex-row items-center lg:justify-between space-y-4 lg:space-y-0 lg:space-x-4 text-center">
           <a
             href="/tech-roles"
-            className="rounded-md border border-darker-cyan hover:bg-oasis-blue shadow-md text-base lg:text-lg font-semibold text-midnight-moss bg-tropical-cyan justify-center p-2 md:p-4"
+            className="rounded-md border border-light-cyan hover:bg-darker-gray shadow-md text-base font-semibold text-midnight-moss bg-light-gray p-3.5 w-4/6 md:w-2/6 lg:w-4/6	"
           >
             Discover Tech Roles
+          </a>
+          <a
+            href="/skill-evaluation"
+            className="rounded-md border border-darker-cyan hover:bg-oasis-blue shadow-md text-base font-semibold text-midnight-moss bg-tropical-cyan p-3.5 w-4/6 md:w-2/6 lg:w-4/6"
+          >
+            Take Skill Evaluation
           </a>
         </div>
       </div>
