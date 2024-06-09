@@ -2,7 +2,7 @@ import roleData from "../data/RoleData";
 
 function TechRoles() {
   return (
-    <div className="my-24 md:my-32">
+    <div className="md:max-w-2xl lg:max-w-4xl my-24 md:my-32">
       <h2 className="text-xl md:text-3xl font-semibold text-midnight-moss pb-9 md:pb-12">
         Discover Tech Roles
       </h2>
