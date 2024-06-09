@@ -30,9 +30,9 @@ function TechPositionTemplate({ roleTitle }) {
       </div>
 
       <div className="flex flex-col items-center pt-12 md:pt-20">
-        <p className="text-xl font-semibold pb-4 md:pb-8">
+        <h4 className="text-xl font-semibold pb-4 md:pb-8">
           Grow Your Technical Skills
-        </p>
+        </h4>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {technicalSkills.map((skill, index) => (
             <button
@@ -49,9 +49,9 @@ function TechPositionTemplate({ roleTitle }) {
       </div>
 
       <div className="flex flex-col items-center pt-12 md:pt-16">
-        <p className="text-xl font-semibold mt-4 md:mt-0 pb-4 md:pb-8">
+        <h4 className="text-xl font-semibold mt-4 md:mt-0 pb-4 md:pb-8">
           Grow Your Soft Skills
-        </p>
+        </h4>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {softSkills.map((skill, index) => (
             <button
