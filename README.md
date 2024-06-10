@@ -69,8 +69,8 @@ To run ESLint and ensure code quality and consistency, use the following command
 Derinell Rojas
 
 
-Vanessa Garcia
-[GitHub](https://github.com/petrihcour) | [LinkedIn](https://www.linkedin.com/in/vanesssagarcia/) | [Portfolio](https://vanessagarcia.netlify.app/)
+Vanessa Garcia <br>
+[GitHub](https://github.com/petrihcour) | [LinkedIn](https://www.linkedin.com/in/vanesssagarcia/) 
 
 #### UX/UI Design Team
 
