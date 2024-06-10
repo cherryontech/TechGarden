@@ -13,6 +13,7 @@
 3. [Discoveries and Future Goals](#discoveries-and-future-goals)
 4. [Screenshots](#screenshots)
 5. [How to Run this Repo](#installation)
+6. [Contributors](#contributors)
 
 ---
 
@@ -29,6 +30,8 @@ Welcome to TechGarden, your digital oasis for nurturing career growth in the tec
 
 ![Tools](https://skillicons.dev/icons?i=react&theme=light) ![Tools](https://skillicons.dev/icons?i=tailwind&theme=light) ![Tools](https://skillicons.dev/icons?i=git&theme=light) ![Tools](https://skillicons.dev/icons?i=netlify&theme=light)
 
+React, Tailwind CSS, Git, Netlify
+
 ## Discoveries and Future Goals
 
 Throughout our journey, we've gained invaluable insights and wisdom. As we continue to grow, our future goals include completing pending features, integrating additional functionalities, and optimizing for scalability and performance, such as: 
@@ -36,8 +39,6 @@ Throughout our journey, we've gained invaluable insights and wisdom. As we conti
 - **Gamified Learning:** Our gamified skill tracker, turning learning into a delightful adventure.
 
 - **Interactive Virtual Sessions:** Engage in meaningful virtual conversations to gain confidence in your soft skills and prepare for real-world challenges.
-
-- **Personalized Recommendations:** Get the AI-powered recommendation based on the data that you provide.
 
 - **User Accounts**: Store, track and share your learning journey as you achieve your goals.
 
@@ -60,3 +61,21 @@ Then, execute:
 To run ESLint and ensure code quality and consistency, use the following command:
 
 ### `npm run lint`
+
+## Contributors
+
+#### Developer Team
+
+Derinell Rojas
+
+
+Vanessa Garcia
+[GitHub](https://github.com/petrihcour) | [LinkedIn](https://www.linkedin.com/in/vanesssagarcia/) | [Portfolio](https://vanessagarcia.netlify.app/)
+
+#### UX/UI Design Team
+
+Coming Soon!
+
+#### Project Managers 
+
+Coming Soon! 
