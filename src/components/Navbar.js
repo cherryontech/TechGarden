@@ -67,7 +67,7 @@ const DropdownMenu = ({ title, items }) => {
         >
           {title}
           <ChevronDownIcon
-            className="h-3.5 w-3.5 text-gray-600"
+            className="h-3.5 w-3.5 text-gray-600 hover:text-gray-800"
             aria-hidden="true"
           />
         </PopoverButton>
@@ -87,11 +87,13 @@ const DropdownMenu = ({ title, items }) => {
                   <Link
                     key={item.name}
                     to={item.path}
-                    className="flex items-start rounded-lg p-2 transition duration-150 ease-in-out hover:bg-white"
+                    className="flex items-start rounded-lg p-2 transition duration-150 ease-in-out bg-white hover:bg-lightest-cyan"
                     onClick={handleLinkClick}
                   >
                     <div className="ml-4">
-                      <p className="text-sm text-gray-700">{item.name}</p>
+                      <p className="text-sm text-gray-600 hover:text-gray-800">
+                        {item.name}
+                      </p>
                     </div>
                   </Link>
                 ))}
@@ -126,7 +128,7 @@ function Navbar() {
         <Link
           to="/"
           onClick={handleLinkClick}
-          className="text-2xl font-semibold hover:text-gray-600"
+          className="text-2xl font-semibold text-gray-800 hover:text-gray-900"
         >
           TechGarden
         </Link>
@@ -158,7 +160,7 @@ function Navbar() {
           <DialogPanel className="fixed right-1 z-10 w-60 bg-white px-6 py-3 mt-14 max-w-xs transform px-2 lg:max-w-3xl rounded-lg shadow-lg ring-1 ring-oasis-blue ring-opacity-5">
             <Link
               to="/tech-roles"
-              className="-mx-3 flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base leading-7 text-gray-600 hover:text-gray-800 hover:bg-gray-50"
+              className="-mx-3 flex w-full items-center justify-between rounded-lg py-2 pl-3 pr-3.5 text-base leading-7 text-gray-600 hover:text-gray-800 hover:bg-lightest-cyan"
               onClick={handleLinkClick}
             >
               Discover Roles
@@ -167,7 +169,7 @@ function Navbar() {
               <Link
                 key={link.name}
                 to={link.path}
-                className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-600 hover:text-gray-800 hover:bg-gray-50"
+                className="-mx-3 block rounded-lg px-3 py-2 text-base leading-7 text-gray-600 hover:text-gray-800 hover:bg-lightest-cyan"
                 onClick={handleLinkClick}
               >
                 {link.name}
