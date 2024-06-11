@@ -8,8 +8,6 @@ function Footer() {
     { name: "UX Designer", path: "/ux-designer" },
   ];
 
-  const skillsResources = ["Administrative", "Interpersonal", "Technical"];
-
   const socialIcons = [
     {
       icon: "mdi:github",
@@ -91,16 +89,14 @@ function Footer() {
             <p className="text-sm text-black font-semibold pb-2">
               Skills Resources
             </p>
-            <ul>
-              {skillsResources.map((resource) => (
-                <li
-                  key={resource}
-                  className="text-sm text-darker-cyan font-medium py-1"
-                >
-                  <Link to="#">{resource}</Link>
-                </li>
-              ))}
-            </ul>
+
+            <Link
+              to="/knowledge-hub"
+              className="text-sm text-darker-cyan hover:text-darkest-cyan font-medium py-1"
+              onClick={handleLinkClick}
+            >
+              Knowledge Hub
+            </Link>
           </div>
         </div>
       </div>
