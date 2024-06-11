@@ -14,7 +14,7 @@ function Skills() {
   }
 
   return (
-    <div>
+    <div role="main">
       <SkillsTemplate skill={skillDataItem} />
     </div>
   );

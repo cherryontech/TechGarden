@@ -7,22 +7,27 @@ function Footer() {
     { name: "Product Manager", path: "/product-manager" },
     { name: "UX Designer", path: "/ux-designer" },
   ];
+
   const skillsResources = ["Administrative", "Interpersonal", "Technical"];
+
   const socialIcons = [
     {
       icon: "mdi:github",
       color: "#36817A",
       url: "https://github.com/cherryontech/TechGarden",
+      label: "GitHub",
     },
     {
       icon: "ri:notion-fill",
       color: "#36817A",
       url: "https://www.notion.so/cherryontech-org/CherryOnTech-4e9cbb7ab6d041de9f87506afd327979",
+      label: "Notion",
     },
     {
       icon: "mdi:linkedin",
       color: "#36817A",
       url: "https://www.linkedin.com/company/cherry-on-tech/",
+      label: "LinkedIn",
     },
   ];
 
@@ -45,23 +50,26 @@ function Footer() {
             </a>
             .
           </p>
-          <div className="flex md:hidden space-x-4">
+          <ul className="flex md:hidden space-x-4">
             {socialIcons.map((social, index) => (
-              <a
-                key={index}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Icon
-                  icon={social.icon}
-                  width="24"
-                  height="24"
-                  style={{ color: social.color }}
-                />
-              </a>
+              <li key={index}>
+                <a
+                  role="button"
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={social.label}
+                >
+                  <Icon
+                    icon={social.icon}
+                    width="24"
+                    height="24"
+                    style={{ color: social.color }}
+                  />
+                </a>
+              </li>
             ))}
-          </div>
+          </ul>
         </div>
         <div className="flex justify-between md:space-x-14 lg:space-x-24 order-3 md:order-2 mt-5 md:mt-0">
           <div>
@@ -100,23 +108,26 @@ function Footer() {
         <p className="text-sm order-2 md:order-1 mt-5 md:mt-0">
           © 2024 TechGarden All rights reserved.
         </p>
-        <div className="flex space-x-4 order-1 md:order-2 hidden md:flex">
+        <ul className="flex space-x-4 order-1 md:order-2 hidden md:flex">
           {socialIcons.map((social, index) => (
-            <a
-              key={index}
-              href={social.url}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Icon
-                icon={social.icon}
-                width="24"
-                height="24"
-                style={{ color: social.color }}
-              />
-            </a>
+            <li key={index}>
+              <a
+                role="button"
+                href={social.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={social.label}
+              >
+                <Icon
+                  icon={social.icon}
+                  width="24"
+                  height="24"
+                  style={{ color: social.color }}
+                />
+              </a>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </footer>
   );

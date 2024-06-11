@@ -82,12 +82,12 @@ function SkillEvaluationStart({ onSubmit }) {
 
   return (
     <>
-      <div className="text-center max-w-72	md:max-w-96 flex-row">
+      <div role="main" className="text-center max-w-72	md:max-w-96 flex-row">
         {step === 0 && (
           <>
-            <h2 className="text-2xl font-normal text-midnight-moss">
+            <h1 className="text-2xl font-normal text-midnight-moss">
               Let&apos;s find your new tech position
-            </h2>
+            </h1>
             <Listbox value={selected} onChange={setSelected}>
               {({ open }) => (
                 <>

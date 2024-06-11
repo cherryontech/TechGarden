@@ -2,10 +2,13 @@ import roleData from "../data/RoleData";
 
 function TechRoles() {
   return (
-    <div className="md:max-w-3xl lg:max-w-4xl xl:max-w-5xl my-24 md:my-32">
-      <h2 className="text-2xl md:text-3xl font-semibold text-midnight-moss pb-9 md:pb-12">
+    <div
+      role="main"
+      className="md:max-w-3xl lg:max-w-4xl xl:max-w-5xl my-24 md:my-32"
+    >
+      <h1 className="text-2xl md:text-3xl font-semibold text-midnight-moss pb-9 md:pb-12">
         Discover Tech Roles
-      </h2>
+      </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {roleData.map((role, index) => (
           <div
@@ -39,7 +42,7 @@ function TechRoles() {
             <div className="flex-grow"></div>
             <div className="flex justify-end mt-auto pt-3">
               <p className="text-sm font-semibold text-darker-cyan hover:text-darkest-cyan">
-                <a href={role.url}>Learn More</a>
+                <a href={role.url}>Explore {role.title}</a>
               </p>
             </div>
           </div>
