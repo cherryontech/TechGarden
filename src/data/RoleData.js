@@ -135,7 +135,7 @@ const roleData = [
       },
     ],
     totalSkills: 15,
-    url: "../../developer",
+    url: "../../web-developer",
     image: devImage,
   },
   {

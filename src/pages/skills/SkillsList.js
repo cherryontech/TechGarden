@@ -7,10 +7,13 @@ function SkillsList() {
   };
 
   return (
-    <div className="max-w-xs md:max-w-2xl lg:max-w-4xl xl:max-w-6xl pt-28 pb-20 md:pt-36">
-      <h2 className="text-2xl md:text-3xl font-semibold text-midnight-moss pb-9 md:pb-12">
+    <div
+      role="main"
+      className="max-w-xs md:max-w-2xl lg:max-w-4xl xl:max-w-6xl pt-28 pb-20 md:pt-36"
+    >
+      <h1 className="text-2xl md:text-3xl font-semibold text-midnight-moss pb-9 md:pb-12">
         Skills
-      </h2>
+      </h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
         {skillData.map((category, index) => (
           <div

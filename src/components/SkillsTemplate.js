@@ -19,7 +19,7 @@ function SkillsTemplate({ skill }) {
           className="w-full md:h-80 md:w-80 md:mr-8 border-2 rounded border-light-orange"
         />
         <div className="mt-4 md:mt-0 text-left space-y-3">
-          <h4 className="text-2xl font-bold capitalize">{skill.name}</h4>
+          <h1 className="text-2xl font-bold capitalize">{skill.name}</h1>
           <p className="text-lg">{skill.description}</p>
           {skill.resources.length > 0 ? (
             <>

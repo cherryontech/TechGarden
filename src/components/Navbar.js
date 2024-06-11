@@ -82,7 +82,7 @@ const DropdownMenu = ({ title, items }) => {
         >
           <PopoverPanel className="absolute z-10 mt-1 w-40 max-w-xs transform px-2 sm:px-0 lg:max-w-3xl">
             <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-oasis-blue ring-opacity-5">
-              <div className="relative">
+              <ul className="relative">
                 {items.map((item) => (
                   <Link
                     key={item.name}
@@ -91,13 +91,13 @@ const DropdownMenu = ({ title, items }) => {
                     onClick={handleLinkClick}
                   >
                     <div className="ml-4">
-                      <p className="text-sm text-gray-600 hover:text-gray-800">
+                      <li className="text-sm text-gray-600 hover:text-gray-800">
                         {item.name}
-                      </p>
+                      </li>
                     </div>
                   </Link>
                 ))}
-              </div>
+              </ul>
             </div>
           </PopoverPanel>
         </Transition>

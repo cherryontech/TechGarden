@@ -17,9 +17,9 @@ function EvaluationTemplate({
   };
 
   return (
-    <div className="flex justify-center items-center">
+    <div role="main" className="flex justify-center items-center">
       <div className="w-screen p-4">
-        <h2 className="text-2xl">Select the skills you currently have</h2>
+        <h1 className="text-2xl">Select the skills you currently have</h1>
         <h2 className="text-xl text-center mb-4 mt-12 mb-6">{skills.title}</h2>
         <div className="grid grid-cols-1 gap-4">
           {skills.skills.map((skill, index) => (
