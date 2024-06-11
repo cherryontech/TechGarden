@@ -38,7 +38,7 @@ function TechRoles() {
             </div>
             <div className="flex-grow"></div>
             <div className="flex justify-end mt-auto pt-3">
-              <p className="text-sm font-semibold text-tropical-cyan">
+              <p className="text-sm font-semibold text-darker-cyan hover:text-darkest-cyan">
                 <a href={role.url}>Learn More</a>
               </p>
             </div>

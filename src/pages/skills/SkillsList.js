@@ -26,7 +26,7 @@ function SkillsList() {
                   <div key={skillIndex} className="pb-3">
                     <Link
                       to={`/knowledge-hub/${encodeURIComponent(skill.name)}`}
-                      className="pe-2 text-gray-moss hover:text-darker-cyan"
+                      className="pe-2 font-medium text-darker-cyan hover:text-darkest-cyan"
                       onClick={handleLinkClick}
                     >
                       {skill.name}

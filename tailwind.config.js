@@ -3,12 +3,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        "cream": "#F5F4F2", // background color
         "oasis-blue": "#B1DBD7", // navbar color
         "tropical-cyan": "#4BB3A9", // button color 
         "light-gray": "#F9FAFB", // back button color
         "darker-gray": "#EAECF0", // back button hover color
-        "darker-cyan": "#2D6B65", // footer link color
+        "darker-cyan": "#36817A", // link color
+        "darkest-cyan": "#2D6B65", // link hover color
         "midnight-moss": "#0C0D0F", // text color
         "gray-moss": "#667085", // footer color 
         "green-blue": "#C7E7E4", // footer border 1
@@ -20,7 +20,7 @@ export default {
         sans: ["Lato", "Helvetica", "Arial", "sans-serif"],
       },
       backgroundImage: {
-        'tech-roles-bg': "url('./assets/tech-roles-bg.png')", // Add your image URL here
+        'tech-roles-bg': "url('./assets/tech-roles-bg.png')",
       },
       fontSize: {
         'xxs': '0.75rem',

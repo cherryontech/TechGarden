@@ -13,7 +13,7 @@ import {
 import { Bars3Icon, ChevronDownIcon } from "@heroicons/react/24/outline";
 
 const techRoles = [
-  { name: "Developer", path: "/developer" },
+  { name: "Web Developer", path: "/web-developer" },
   { name: "Product Manager", path: "/product-manager" },
   { name: "UX Designer", path: "/ux-designer" },
 ];
@@ -82,7 +82,7 @@ const DropdownMenu = ({ title, items }) => {
         >
           <PopoverPanel className="absolute z-10 mt-1 w-40 max-w-xs transform px-2 sm:px-0 lg:max-w-3xl">
             <div className="overflow-hidden rounded-lg shadow-lg ring-1 ring-oasis-blue ring-opacity-5">
-              <div className="relative bg-cream ">
+              <div className="relative">
                 {items.map((item) => (
                   <Link
                     key={item.name}

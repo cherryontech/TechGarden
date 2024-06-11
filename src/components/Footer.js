@@ -3,7 +3,7 @@ import { Icon } from "@iconify/react";
 
 function Footer() {
   const techRoles = [
-    { name: "Developer", path: "/developer" },
+    { name: "Web Developer", path: "/web-developer" },
     { name: "Product Manager", path: "/product-manager" },
     { name: "UX Designer", path: "/ux-designer" },
   ];
@@ -11,17 +11,17 @@ function Footer() {
   const socialIcons = [
     {
       icon: "mdi:github",
-      color: "#357F78",
+      color: "#36817A",
       url: "https://github.com/cherryontech/TechGarden",
     },
     {
       icon: "ri:notion-fill",
-      color: "#357F78",
+      color: "#36817A",
       url: "https://www.notion.so/cherryontech-org/CherryOnTech-4e9cbb7ab6d041de9f87506afd327979",
     },
     {
       icon: "mdi:linkedin",
-      color: "#357F78",
+      color: "#36817A",
       url: "https://www.linkedin.com/company/cherry-on-tech/",
     },
   ];
@@ -39,7 +39,7 @@ function Footer() {
             TechGarden is a product of the Mars Mavericks tech squad of{" "}
             <a
               href="https://cherryon.tech/"
-              className="text-darker-cyan font-semibold"
+              className="text-darker-cyan hover:text-darkest-cyan font-semibold"
             >
               Cherry on Tech
             </a>
@@ -70,7 +70,7 @@ function Footer() {
               {techRoles.map((role) => (
                 <li
                   key={role.name}
-                  className="text-sm text-darker-cyan font-medium py-1"
+                  className="text-sm text-darker-cyan hover:text-darkest-cyan font-medium py-1"
                 >
                   <Link to={role.path} onClick={handleLinkClick}>
                     {role.name}
