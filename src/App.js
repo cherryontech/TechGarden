@@ -36,7 +36,7 @@ function App() {
           />
           <Route path="/knowledge-hub" element={<KnowledgeHub />} />
           <Route path="/knowledge-hub/:skill" element={<Skills />} />
-          <Route path="/developer" element={<Developer />} />
+          <Route path="/web-developer" element={<Developer />} />
           <Route path="/product-manager" element={<ProductManager />} />
           <Route path="/ux-designer" element={<UXDesigner />} />
           <Route

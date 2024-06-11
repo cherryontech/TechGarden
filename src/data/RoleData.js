@@ -4,7 +4,7 @@ import uxImage from "../assets/ux_role-no-border.png";
 
 const roleData = [
   {
-    title: "Developer",
+    title: "Web Developer",
     shortDescription:
       "The code ninjas who turn design dreams into functional, responsive reality.",
     longDescription: (

@@ -32,7 +32,7 @@ function SkillsTemplate({ skill }) {
                   <li key={index} className="p-2">
                     <a
                       href={resource.url}
-                      className="font-semibold text-gray-700 hover:text-darker-cyan"
+                      className="font-semibold text-darker-cyan hover:text-darkest-cyan"
                     >
                       {resource.title}
                     </a>

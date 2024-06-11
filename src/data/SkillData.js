@@ -127,7 +127,7 @@ const skillData = [
         name: "Proficiency in HTML, CSS, and JavaScript",
         description:
           "Mastery of these core web technologies is essential for creating and styling web pages and adding interactivity. They form the foundation of front-end development.",
-        role: "Developer",
+        role: "Web Developer",
         related: ["Responsive design techniques"],
         resources: [
           {
@@ -156,7 +156,7 @@ const skillData = [
         name: "Responsive design techniques",
         description:
           "Ensuring websites work well on various devices and screen sizes through responsive design. This is crucial for providing a consistent user experience across platforms.",
-        role: ["Developer", "UX Designer"],
+        role: ["Web Developer", "UX Designer"],
         related: ["Proficiency in HTML, CSS, and JavaScript"],
         resources: [
           {
@@ -173,7 +173,7 @@ const skillData = [
         name: "UI/UX design principles",
         description:
           "Applying UI/UX principles to create user-friendly and aesthetically pleasing interfaces. This enhances usability and overall user satisfaction.",
-        role: ["Developer", "UX Designer"],
+        role: ["Web Developer", "UX Designer"],
         related: ["UI design patterns and best practices"],
         resources: [
           {
@@ -194,7 +194,7 @@ const skillData = [
         name: "Version control systems (e.g., Git)",
         description:
           "Using version control systems to track changes, collaborate with team members, and manage code efficiently. This is vital for maintaining code integrity and history.",
-        role: "Developer",
+        role: "Web Developer",
         related: [],
         resources: [
           {
@@ -219,7 +219,7 @@ const skillData = [
         name: "Browser developer tools",
         description:
           "Utilizing browser developer tools for debugging and optimizing web applications. These tools help in identifying and fixing issues quickly.",
-        role: "Developer",
+        role: "Web Developer",
         related: [
           "Proficiency in HTML, CSS, and JavaScript",
           "Cross-browser compatibility testing",
@@ -239,7 +239,7 @@ const skillData = [
         name: "Cross-browser compatibility testing",
         description:
           "Ensuring that web applications function correctly across different web browsers. This is important for providing a consistent experience to all users.",
-        role: "Developer",
+        role: "Web Developer",
         related: ["Proficiency in HTML, CSS, and JavaScript"],
         resources: [
           {
@@ -256,7 +256,7 @@ const skillData = [
         name: "Debugging skills",
         description:
           "Diagnosing and resolving issues that arise during development. Strong problem-solving skills are essential for maintaining functionality and performance.",
-        role: "Developer",
+        role: "Web Developer",
         related: ["Attention to detail"],
         resources: [
           {
@@ -358,18 +358,31 @@ const skillData = [
           "Effective leadership and team management motivate and guide teams towards achieving project goals. It involves clear communication, delegation, and conflict resolution.",
         role: "Product Manager",
         related: ["Communication and interpersonal"],
-        resources: [],
+        resources: [
+          {
+            title: "Be a Great Manager With These 12 Leadership Books",
+            url: "https://www.predictiveindex.com/blog/be-a-great-manager-with-these-12-leadership-books/",
+          },
+          {
+            title: "Free Product Management Resources",
+            url: "https://medium.com/agileinsider/free-product-management-resources-701b719b2751",
+          },
+        ],
       },
       {
         name: "Communication and interpersonal",
         description:
           "Strong communication and interpersonal skills facilitate collaboration and understanding among team members and stakeholders. They are essential for conveying ideas and resolving issues.",
-        role: ["Developer", "Product Manager", "UX Designer"],
+        role: ["Web Developer", "Product Manager", "UX Designer"],
         related: ["Leadership and team management"],
         resources: [
           {
             title: "Mastering Communication: A Product Manager's Superpower",
             url: "https://miro.com/blog/communication-product-managers-product-school/",
+          },
+          {
+            title: "Ways You Can Improve Your Communication Skills",
+            url: "https://professional.dce.harvard.edu/blog/8-ways-you-can-improve-your-communication-skills/",
           },
         ],
       },
@@ -377,17 +390,57 @@ const skillData = [
         name: "Problem-solving and decision-making",
         description:
           "Ability to identify problems and make timely decisions is crucial for project success. It involves analyzing situations and choosing the best course of action.",
-        role: ["Developer", "Product Manager", "UX Designer"],
+        role: ["Web Developer", "Product Manager", "UX Designer"],
         related: ["Attention to detail", "Time management and organization"],
-        resources: [],
+        resources: [
+          {
+            title: "Making Good Decisions as a Product Manager",
+            url: "https://blackboxofpm.com/making-good-decisions-as-a-product-manager-c66ddacc9e2b",
+          },
+          {
+            title: "The Ultimate Guide to Resources for Product Managers",
+            url: "https://www.productplan.com/learn/resources-for-product-managers/",
+          },
+          {
+            title: "Making and Tracking Decisions as a Product Manager",
+            url: "https://bootcamp.uxdesign.cc/making-and-tracking-decisions-as-a-product-manager-fb720d1f73d5",
+          },
+        ],
       },
       {
         name: "Time management and organization",
         description:
           "Efficient time management and organizational skills ensure timely project completion and task prioritization. It helps in balancing multiple responsibilities and deadlines.",
-        role: ["Developer", "Product Manager", "UX Designer"],
+        role: ["Web Developer", "Product Manager", "UX Designer"],
         related: ["Problem-solving and decision-making"],
-        resources: [],
+        resources: [
+          {
+            title: "Time Management Courses",
+            url: "https://www.udemy.com/topic/time-management/",
+          },
+          {
+            title:
+              "How to Manage Your Time More Effectively (According to Machines)",
+            url: "https://www.youtube.com/watch?si=xFQx3NtnIbq8J2Zi&v=iDbdXTMnOmE&feature=youtu.be",
+          },
+          {
+            title: "Tools for Better Productivity & Time Management",
+            url: "https://youtu.be/W8B0KWmv_-Q?si=sqVRj_GICoR427Eg",
+          },
+          {
+            title: "Time Management For Product Managers (70-20-10 Rule)",
+            url: "https://medium.com/@junloayza/time-management-for-product-managers-70-20-10-rule-afb740c6a6fc",
+          },
+          {
+            title:
+              "Time Management Tips For Product Managers: How to Prioritize Your Work",
+            url: "https://productschool.com/blog/product-fundamentals/time-management-product-manager",
+          },
+          {
+            title: "A Product Manager's Tips for Time Management",
+            url: "https://www.pendo.io/pendo-blog/product-manager-time-management-tips/",
+          },
+        ],
       },
       {
         name: "Stakeholder management",
@@ -442,7 +495,7 @@ const skillData = [
         name: "Creative problem-solving",
         description:
           "Employing creativity to devise innovative solutions to design challenges. It involves thinking outside the box to enhance user experience.",
-        role: ["Developer", "Product Manager", "UX Designer"],
+        role: ["Web Developer", "Product Manager", "UX Designer"],
         related: ["Time management and organization"],
         resources: [],
       },
@@ -450,7 +503,7 @@ const skillData = [
         name: "Attention to detail",
         description:
           "Ensuring precision in coding and design to avoid errors and ensure a polished end product. This is important for quality assurance.",
-        role: ["Developer", "Product Manager", "UX Designer"],
+        role: ["Web Developer", "Product Manager", "UX Designer"],
         related: ["Time management and organization"],
         resources: [
           {
@@ -467,25 +520,57 @@ const skillData = [
         name: "Presentation skills",
         description:
           "Effectively presenting design ideas and concepts to stakeholders and clients. It involves clear and persuasive communication.",
-        role: ["Developer", "Product Manager", "UX Designer"],
+        role: ["Web Developer", "Product Manager", "UX Designer"],
         related: ["Leadership and team management"],
-        resources: [],
+        resources: [
+          {
+            title: "How to Present UX/UI Design Work",
+            url: "https://youtu.be/gx3r8Bj66JU",
+          },
+          {
+            title: "Presenting With Confidence",
+            url: "https://youtu.be/OiGU3jj_QeA",
+          },
+        ],
       },
       {
         name: "Collaboration with other team members",
         description:
           "Working collaboratively with various team members to create cohesive and functional web applications. Effective communication and teamwork are key.",
-        role: ["Developer", "Product Manager", "UX Designer"],
+        role: ["Web Developer", "Product Manager", "UX Designer"],
         related: [],
-        resources: [],
+        resources: [
+          {
+            title: "Collaborative Web Development",
+            url: "https://webflow.com/blog/collaborative-web-development",
+          },
+          {
+            title: "Top 10 Collaboration Examples For Web Developers",
+            url: "https://blog.exactbuyer.com/post/collaboration-examples-for-web-developers",
+          },
+          {
+            title: "What Is Collaborative Design (And Why Is It So Important)?",
+            url: "https://www.wix.com/studio/blog/collaboration-design",
+          },
+        ],
       },
       {
         name: "Continuous learning and adaptation to new technologies",
         description:
           "Staying updated with the latest technologies and industry trends. This ensures the use of modern tools and practices in development.",
-        role: "Developer",
+        role: "Web Developer",
         related: [],
-        resources: [],
+        resources: [
+          {
+            title: "How I Keep Learning Web Development Amidst a Busy Life",
+            url: "https://www.linkedin.com/pulse/finding-time-growth-how-i-keep-learning-web-amidst-busy-hayden-tomas-yadee/",
+          },
+          {
+            title:
+              "The Importance of Continuous Learning and Development in IT",
+            url: "https://nerdrabbit.com/blogs/2024/04/30/continuous-learning-and-development-in-it/",
+          },
+        ],
       },
     ],
   },
