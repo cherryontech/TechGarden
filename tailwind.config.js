@@ -3,7 +3,7 @@ export default {
   theme: {
     extend: {
       colors: {
-        "oasis-blue": "#B1DBD7", // navbar color
+        "oasis-blue": "#C7E7E4", // navbar color
         "tropical-cyan": "#4BB3A9", // button color 
         "light-gray": "#F9FAFB", // back button color
         "darker-gray": "#EAECF0", // back button hover color
