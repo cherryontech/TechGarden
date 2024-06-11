@@ -128,7 +128,7 @@ function Navbar() {
         <Link
           to="/"
           onClick={handleLinkClick}
-          className="text-2xl font-semibold text-gray-800 hover:text-gray-900"
+          className="text-2xl font-semibold text-midnight-moss"
         >
           TechGarden
         </Link>
