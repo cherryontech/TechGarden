@@ -149,28 +149,37 @@ function CareerRecommendations({ results }) {
 
   // generate the email content
   const generateEmailContent = () => {
-    const subject = "Career Evaluation Results";
+    const subject = "Your Career Evaluation Results";
+
     const body = `
-      Recommended Role: ${recommendedRole}
-      Match Percentage: ${matchPercentage}%
-      Role Description: ${recommendedRoleDescription}
-      
-      Skills to Improve:
-      ${unselectedSkills.map((skill) => `- ${skill.name}`).join("\n")}
-      
-      Current Matching Skills:
-      ${matchingSkills.map((skill) => `- ${skill.name}`).join("\n")}
-      
-      Other Roles to Consider:
-      ${otherRoles
-        .map(
-          (role) => `
-        - Role: ${role.role}
-          Percentage Match: ${role.percentage}%
-      `
-        )
-        .join("\n")}
-    `;
+    Hello,
+
+    Thank you for using our Career Evaluation tool. Here are your personalized results:
+
+    Recommended Role: ${recommendedRole}
+    Match Percentage: ${matchPercentage}%
+    
+    Skills to Improve:
+    ${unselectedSkills.map((skill) => `- ${skill.name}`).join("\n")}
+    
+    Current Matching Skills:
+    ${matchingSkills.map((skill) => `- ${skill.name}`).join("\n")}
+    
+    Other Roles to Consider:
+    ${otherRoles
+      .map(
+        (role) => `
+      - Role: ${role.role}
+        Percentage Match: ${role.percentage}%
+    `
+      )
+      .join("\n")}
+
+    To explore more about these roles and skills, you can visit our website at techgarden.netlify.app/.
+
+    Best regards,
+    The TechGarden Team
+  `;
     const mailtoLink = `mailto:?subject=${encodeURIComponent(
       subject
     )}&body=${encodeURIComponent(body)}`;
@@ -349,7 +358,11 @@ function CareerRecommendations({ results }) {
               <button
                 className="text-midnight-moss"
                 onClick={() => toggleAccordion(index)}
-                aria-label={accordionStates[index] ? `Collapse ${role.role} details` : `Expand ${role.role} details`}
+                aria-label={
+                  accordionStates[index]
+                    ? `Collapse ${role.role} details`
+                    : `Expand ${role.role} details`
+                }
               >
                 {accordionStates[index] ? (
                   <ChevronUpIcon className="w-6 h-6" />
