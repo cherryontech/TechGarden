@@ -475,23 +475,6 @@ const skillData = [
         ],
       },
       {
-        name: "Empathy for users",
-        description:
-          "Having a deep understanding and empathy for user needs and pain points. This drives the creation of user-centered designs.",
-        role: ["Product Manager", "UX Designer"],
-        related: ["Stakeholder management"],
-        resources: [
-          {
-            title: "Design of Everyday Things Book",
-            url: "https://www.goodreads.com/book/show/840.The_Design_of_Everyday_Things",
-          },
-          {
-            title: "Building For Everyone Audiobook",
-            url: "https://www.hoopladigital.com/title/13484214",
-          },
-        ],
-      },
-      {
         name: "Creative problem-solving",
         description:
           "Employing creativity to devise innovative solutions to design challenges. It involves thinking outside the box to enhance user experience.",

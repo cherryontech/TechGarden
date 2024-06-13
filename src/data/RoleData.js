@@ -231,12 +231,6 @@ const roleData = [
         type: "soft",
       },
       {
-        name: "Empathy for users",
-        description:
-          "Having a deep understanding and empathy for user needs and pain points. This drives the creation of user-centered designs.",
-        type: "soft",
-      },
-      {
         name: "Creative problem-solving",
         description:
           "Employing creativity to devise innovative solutions to design challenges. It involves thinking outside the box to enhance user experience.",
@@ -373,12 +367,6 @@ const roleData = [
         name: "Customer empathy",
         description:
           "Demonstrating customer empathy involves understanding and addressing customer needs and pain points. It ensures the product meets user expectations and delivers value.",
-        type: "soft",
-      },
-      {
-        name: "Empathy for users",
-        description:
-          "Having a deep understanding and empathy for user needs and pain points. This drives the creation of user-centered designs.",
         type: "soft",
       },
       {
