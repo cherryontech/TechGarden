@@ -119,6 +119,11 @@ DropdownMenu.propTypes = {
 function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  const handleLinkClick = () => {
+    setMobileMenuOpen(false);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <header>
       <nav
