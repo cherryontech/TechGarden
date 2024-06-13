@@ -197,7 +197,7 @@ function CareerRecommendations({ results }) {
   return (
     <div
       role="main"
-      className="max-w-xs md:max-w-2xl lg:max-w-4xl text-center mt-28 mb-20 md:mt-40 md:mb-40"
+      className="max-w-sm md:max-w-2xl lg:max-w-4xl text-center px-6 md:px-0 mt-28 mb-20 md:mt-40 md:mb-40"
     >
       <h1 className="text-2xl md:text-3xl text-start font-semibold text-midnight-moss pb-4 md:pb-6">
         Career Recommendations Based on Your Skills
@@ -209,7 +209,7 @@ function CareerRecommendations({ results }) {
               <img
                 src={recommendedRoleImage}
                 alt={recommendedRole}
-                className="w-full	 md:h-80 md:w-80 md:mr-8"
+                className="w-full	md:h-80 md:w-80 md:mr-8"
               />
             )}
             <div className="mt-4 lg:mt-0 px-4 xl:px-0 text-center">
@@ -268,7 +268,7 @@ function CareerRecommendations({ results }) {
                               )}`}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex justify-between items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-80 lg:w-96 py-1.5 px-4"
+                              className="flex justify-between items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-72 md:w-80 lg:w-96 py-1.5 px-4"
                               aria-label={`Learn more about ${skill.name} in the knowledge hub`}
                             >
                               <span className="truncate pe-1">
@@ -305,7 +305,7 @@ function CareerRecommendations({ results }) {
                             )}`}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-80 md:w-full py-1.5 px-4"
+                            className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-72 md:w-full py-1.5 px-4"
                             aria-label={`Learn more about ${skill.name} in the knowledge hub`}
                           >
                             <span className="flex items-center justify-start w-4 h-4">
@@ -323,7 +323,7 @@ function CareerRecommendations({ results }) {
           )}
         </div>
       ) : (
-        <div className="flex flex-col md:flex-row md:max-w-4xl items-center pt-3 pb-10 mx-8 md:pt-0 md:pb-0">
+        <div className="flex flex-col md:flex-row md:max-w-4xl items-center pt-3 pb-10 md:pt-0 md:pb-0">
           <img
             src={AllRoles}
             alt="three animated persons on a computer"
@@ -375,7 +375,7 @@ function CareerRecommendations({ results }) {
               <>
                 <div
                   key={`${role.role}-${index}`}
-                  className="flex flex-col md:flex-row md:max-w-4xl md:mx-auto items-start mt-8 pb-10 md:pt-0 md:pb-0"
+                  className="flex flex-col md:flex-row items-start mt-8 pb-10 md:pt-0 md:pb-0"
                 >
                   {roleData.find((r) => r.title === role.role)?.image && (
                     <img
@@ -393,7 +393,7 @@ function CareerRecommendations({ results }) {
                     )}
                   </div>
                 </div>
-                <div className="flex flex-col md:max-w-4xl md:items-start justify-center pt-3 pb-10 md:mx-8 md:pt-0 md:pb-0 md:mt-10">
+                <div className="flex flex-col md:items-start justify-center pt-3 pb-10 md:pt-0 md:pb-0 md:mt-10">
                   <p className="font-semibold text-xl mt-4">
                     Grow Into a {role.role}
                   </p>
@@ -413,7 +413,7 @@ function CareerRecommendations({ results }) {
                                 )}`}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="flex justify-between items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-80 md:w-full py-1.5 px-4"
+                                className="flex justify-between items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-72 md:w-full py-1.5 px-4"
                                 aria-label={`Learn more about ${skill.name} in the knowledge hub`}
                               >
                                 <span className="truncate pe-2">
@@ -447,7 +447,7 @@ function CareerRecommendations({ results }) {
                                   )}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-80 md:w-full py-1.5 px-4"
+                                  className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-72 md:w-full py-1.5 px-4"
                                   aria-label={`Learn more about ${skill.name} in the knowledge hub`}
                                 >
                                   <span className="flex items-center justify-start w-4 h-4">

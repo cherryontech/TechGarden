@@ -4,7 +4,7 @@ function TechRoles() {
   return (
     <div
       role="main"
-      className="md:max-w-3xl lg:max-w-4xl xl:max-w-5xl my-24 md:my-32"
+      className="max-w-xs sm:max-w-sm md:max-w-3xl lg:max-w-4xl xl:max-w-5x mx-6 md:mx-0 my-24 md:my-32"
     >
       <h1 className="text-2xl md:text-3xl font-semibold text-midnight-moss pb-9 md:pb-12">
         Discover Tech Roles
