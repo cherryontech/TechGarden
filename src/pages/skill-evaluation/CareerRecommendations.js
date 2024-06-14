@@ -160,7 +160,7 @@ function CareerRecommendations({ results }) {
   return (
     <div
       role="main"
-      className="max-w-xs md:max-w-2xl lg:max-w-4xl text-center mt-28 mb-20 md:mt-40 md:mb-40"
+      className="max-w-sm md:max-w-2xl lg:max-w-4xl text-center px-6 md:px-0 mt-28 mb-20 md:mt-40 md:mb-40"
     >
       <div id="pdf-content">
         <h1 className="text-2xl md:text-3xl text-start font-semibold text-midnight-moss pb-4 md:pb-6">
@@ -175,6 +175,7 @@ function CareerRecommendations({ results }) {
                   alt={recommendedRole}
                   className="w-full	 md:h-80 md:w-80 md:mr-8"
                 />
+
               )}
               <div className="mt-4 lg:mt-0 px-4 xl:px-0 text-center">
                 <p className="text-2xl">Congratulations!</p>
@@ -269,7 +270,9 @@ function CareerRecommendations({ results }) {
                               )}`}
                               target="_blank"
                               rel="noopener noreferrer"
-                              className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-80 md:w-full py-1.5 px-4"
+
+                              className="flex justify-between items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-72 md:w-80 lg:w-96 py-1.5 px-4"
+
                               aria-label={`Learn more about ${skill.name} in the knowledge hub`}
                             >
                               <span className="flex items-center justify-start w-4 h-4">
@@ -327,27 +330,41 @@ function CareerRecommendations({ results }) {
               </button>
             )}
           </PDFDownloadLink>
+
         </div>
 
-        <div>
-          <h6 className="font-semibold text-xl pt-16 mb-2">
-            Roles to Consider
-          </h6>
-          {otherRoles.map((role, index) => (
-            <React.Fragment key={`${role.role}-${index}`}>
-              <div className="flex justify-between items-center border rounded border-green-blue p-4 mt-4">
-                <div className="flex justify-start items-center">
-                  <p className="text-xl pe-4 md:pe-8">{role.role}</p>
-                  <p>{role.percentage}% skills match</p>
-                </div>
-                <button
-                  className="text-midnight-moss"
-                  onClick={() => toggleAccordion(index)}
-                  aria-label={
-                    accordionStates[index]
-                      ? `Collapse ${role.role} details`
-                      : `Expand ${role.role} details`
-                  }
+
+      <div>
+        <h6 className="font-semibold text-xl pt-16 mb-2">Roles to Consider</h6>
+        {otherRoles.map((role, index) => (
+          <React.Fragment key={`${role.role}-${index}`}>
+            <div className="flex justify-between items-center border rounded border-green-blue p-4 mt-4">
+              <div className="flex justify-start items-center">
+                <p className="text-xl pe-4 md:pe-8">{role.role}</p>
+                <p>{role.percentage}% skills match</p>
+              </div>
+              <button
+                className="text-midnight-moss"
+                onClick={() => toggleAccordion(index)}
+                aria-label={
+                  accordionStates[index]
+                    ? `Collapse ${role.role} details`
+                    : `Expand ${role.role} details`
+                }
+              >
+                {accordionStates[index] ? (
+                  <ChevronUpIcon className="w-6 h-6" />
+                ) : (
+                  <ChevronDownIcon className="w-6 h-6" />
+                )}
+              </button>
+            </div>
+            {accordionStates[index] && (
+              <>
+                <div
+                  key={`${role.role}-${index}`}
+                  className="flex flex-col md:flex-row items-start mt-8 pb-10 md:pt-0 md:pb-0"
+
                 >
                   {accordionStates[index] ? (
                     <ChevronUpIcon className="w-6 h-6" />
@@ -378,6 +395,7 @@ function CareerRecommendations({ results }) {
                           {otherRolesDescriptions[index]}
                         </div>
                       )}
+
                     </div>
                   </div>
                   <div className="flex flex-col md:max-w-4xl md:items-start justify-center pt-3 pb-10 md:mx-8 md:pt-0 md:pb-0 md:mt-10">
@@ -400,7 +418,9 @@ function CareerRecommendations({ results }) {
                                   )}`}
                                   target="_blank"
                                   rel="noopener noreferrer"
-                                  className="flex justify-between items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-80 md:w-full py-1.5 px-4"
+
+                                  className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-72 md:w-full py-1.5 px-4"
+
                                   aria-label={`Learn more about ${skill.name} in the knowledge hub`}
                                 >
                                   <span className="truncate pe-2">

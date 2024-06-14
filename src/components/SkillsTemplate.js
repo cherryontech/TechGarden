@@ -11,7 +11,7 @@ function SkillsTemplate({ skill }) {
   };
 
   return (
-    <div className="max-w-xs md:max-w-2xl lg:max-w-3xl xl:max-w-5xl pt-28 pb-20 md:pt-36">
+    <div className="max-w-xs sm:max-w-sm md:max-w-2xl lg:max-w-3xl xl:max-w-5xl px-4 md:px-0 pt-28 pb-20 md:pt-36">
       <div className="flex flex-col md:flex-row items-start">
         <img
           src={SkillImage}
@@ -50,16 +50,18 @@ function SkillsTemplate({ skill }) {
         <div className="flex flex-col items-center pt-12">
           <h4 className="text-xl font-semibold pb-4">Explore Related Skills</h4>
           <div className="flex justify-center">
-            <ul className="md:flex flex-wrap">
+            <ul className="flex flex-wrap">
               {skill.related.map((relatedSkill, index) => (
                 <li key={index} className="text-start w-full md:w-auto p-2">
                   <Link
                     to={`/knowledge-hub/${encodeURIComponent(relatedSkill)}`}
-                    className="flex justify-between items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-80 md:w-full py-1.5 px-4"
+                    className="flex justify-between items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-semibold text-midnight-moss bg-tropical-cyan w-72 md:w-full py-1.5 px-4"
                     onClick={handleLinkClick}
                   >
                     <span className="truncate pe-2">{relatedSkill}</span>
-                    <ArrowRightIcon className="h-5 w-5 text-midnight-moss" />
+                    <div className="arrow-container">
+                      <ArrowRightIcon className="h-5 w-5 text-midnight-moss" />
+                    </div>{" "}
                   </Link>
                 </li>
               ))}
@@ -80,7 +82,7 @@ function SkillsTemplate({ skill }) {
                   to={`/${encodeURIComponent(
                     role.toLowerCase().replace(/\s+/g, "-")
                   )}`}
-                  className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-80 md:w-full py-1.5 px-4"
+                  className="flex justify-center items-center rounded-md shadow-lg hover:bg-oasis-blue shadow-md font-medium text-midnight-moss bg-lightest-cyan border border-tropical-cyan w-72 md:w-full py-1.5 px-4"
                   onClick={handleLinkClick}
                 >
                   <span className="flex items-center justify-start w-4 h-4">

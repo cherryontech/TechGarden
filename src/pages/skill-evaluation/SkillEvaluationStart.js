@@ -82,22 +82,25 @@ function SkillEvaluationStart({ onSubmit }) {
 
   return (
     <>
-      <div role="main" className="text-center max-w-72	md:max-w-96 flex-row">
+      <div
+        role="main"
+        className="text-center max-w-64 md:max-w-96 pt-28 pb-20 md:py-24 xl:py-0"
+      >
         {step === 0 && (
           <>
-            <h1 className="text-2xl font-normal text-midnight-moss">
+            <h1 className="text-2xl font-medium text-midnight-moss">
               Let&apos;s find your new tech position
             </h1>
             <Listbox value={selected} onChange={setSelected}>
               {({ open }) => (
                 <>
-                  <Label className="block text-base font-normal leading-6 text-midnight-moss py-6">
+                  <Label className="block text-base font-normal text-midnight-moss py-4 md:py-6">
                     Input your current skills to uncover new career paths! See
                     where your expertise can be applied across various tech
                     fields and expand your opportunities.
                   </Label>
-                  <div className="relative pt-6">
-                    <ListboxButton className="relative w-full cursor-pointer rounded-md bg-light-gray py-3 pl-3 pr-10 text-left text-gray-900 shadow-lg ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-oasis-blue sm:text-sm sm:leading-6">
+                  <div className="relative pt-4 md:pt-6">
+                    <ListboxButton className="relative w-full cursor-pointer rounded-md bg-light-gray py-2.5 md:py-3 pl-3 pr-10 text-left text-gray-900 shadow-lg ring-1 ring-inset ring-gray-300 focus:outline-none focus:ring-2 focus:ring-oasis-blue sm:text-sm sm:leading-6">
                       <span className="flex items-center">
                         {selected ? (
                           <span className="ml-3 block truncate text-base">
@@ -132,7 +135,7 @@ function SkillEvaluationStart({ onSubmit }) {
                                 active
                                   ? "bg-tropical-cyan text-black"
                                   : "text-gray-500",
-                                "relative cursor-pointer select-none py-2 pl-3 pr-9"
+                                "relative cursor-pointer select-none py-1.5 md:py-2 pl-3 pr-9"
                               )
                             }
                             value={card}
@@ -178,15 +181,15 @@ function SkillEvaluationStart({ onSubmit }) {
               )}
             </Listbox>
             {error && (
-              <div className="flex items-center text-red-600 bg-red-100 px-4 py-3 mt-4 rounded-md shadow-md">
+              <div className="flex items-center text-red-600 bg-red-100 px-4 py-2.5 md:py-3 mt-4 rounded-md shadow-md">
                 <ExclamationCircleIcon className="h-5 w-5 mr-2" />
                 <span>{error}</span>
               </div>
             )}
-            <div className="pt-36 flex items-center">
+            <div className="pt-32 md:pt-36 flex items-center">
               <button
                 onClick={nextStep}
-                className="rounded-md shadow-lg hover:bg-oasis-blue shadow-md text-base font-semibold text-midnight-moss bg-tropical-cyan justify-center w-full py-3"
+                className="rounded-md shadow-lg hover:bg-oasis-blue shadow-md text-base font-semibold text-midnight-moss bg-tropical-cyan justify-center w-full py-2.5 md:py-3"
               >
                 Next
               </button>
