@@ -27,7 +27,7 @@ function EvaluationTemplate({
               key={index}
               checked={selectedSkills.includes(skill)}
               onChange={() => toggleSkill(skill)}
-              className={`flex items-start justify-between border border-gray-300 cursor-pointer hover:bg-lightest-cyan hover:border-light-cyan rounded-lg p-3
+              className={`flex items-start justify-between border border-gray-300 cursor-pointer rounded-lg p-3
               ${
                 selectedSkills.includes(skill)
                   ? "bg-lightest-cyan"
