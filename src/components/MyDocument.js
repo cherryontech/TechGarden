@@ -8,7 +8,7 @@ const styles = StyleSheet.create({
     padding: 20,
   },
   headerSection: {
-    marginBottom: 20,
+    marginBottom: 10,
     paddingBottom: 10,
     borderBottomWidth: 1,
     borderBottomColor: "#CCCCCC",
@@ -36,13 +36,20 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     color: "#333333",
   },
+  subHeaderSection: {
+    marginBottom: 10,
+    paddingBottom: 10,
+    borderBottomWidth: 1,
+    borderBottomColor: "#CCCCCC",
+    textAlign: "center",
+  },
   text: {
     fontSize: 12,
     marginBottom: 5,
-    color: "#666666",
+    color: "#667085",
   },
   skillTable: {
-    marginTop: 10,
+    marginTop: 5,
     borderWidth: 1,
     borderStyle: "solid",
     borderColor: "#C7E7E4",
@@ -62,12 +69,12 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     borderBottomWidth: 1,
     borderBottomColor: "#CCCCCC",
-    minHeight: 30,
     alignItems: "center",
   },
   tableCell: {
     fontSize: 12,
     paddingHorizontal: 12,
+    paddingVertical: 7,
     textAlign: "left",
     flexGrow: 1,
     color: "#000000",
@@ -87,7 +94,7 @@ const MyDocument = ({
   unselectedSkills,
   matchingSkills,
   otherRoles,
-  otherRolesDescriptions,
+  recommendedRoleShortDescription,
   otherRolesUnselectedSkills,
   otherRolesMatchingSkills,
 }) => (
@@ -97,28 +104,20 @@ const MyDocument = ({
         <Text style={styles.headerText}>TechGarden</Text>
       </View>
       <View style={styles.section}>
-        {matchPercentage === 0 ? (
-          <View style={[styles.section, styles.congratulations]}>
-            <Text>
-              Your garden has the potential for multiple roles. Explore each
-              opportunity to discover where your unique talents truly shine.
-            </Text>
-          </View>
-        ) : (
+        {/* Case 1: Recommended role, not 100% match */}
+        {recommendedRole && matchPercentage < 100 && (
           <View style={styles.section}>
             <Text style={styles.header}>Career Recommendations</Text>
             <Text style={styles.subHeader}>Congratulations!</Text>
             <Text style={styles.text}>
               You are just a few skills away from becoming a
             </Text>
-            <Text style={styles.subHeader}>{recommendedRole}</Text>
+            <Text style={styles.subHeader}>
+              {recommendedRole} - {recommendedRoleShortDescription}
+            </Text>
             <Text style={styles.text}>
               Your current skills match {matchPercentage}% of the top skills
               required in this position.
-            </Text>
-            <Text style={styles.text}>
-              As a {recommendedRole}, you&apos;ll be the creative wizard
-              ensuring that using an app feels as good as it looks.
             </Text>
 
             <View style={styles.skillTable}>
@@ -135,6 +134,50 @@ const MyDocument = ({
           </View>
         )}
 
+        {/* Case 2: Recommended role, 100% match */}
+        {recommendedRole && matchPercentage === 100 && (
+          <View style={styles.section}>
+            <Text style={styles.header}>Career Recommendations</Text>
+            <Text style={styles.subHeader}>Congratulations!</Text>
+            <Text style={styles.text}>
+              Your current skills match 100% of the top skills required for the{" "}
+              {recommendedRole} role.
+            </Text>
+            <Text style={styles.subHeader}>
+              {recommendedRole} - {recommendedRoleShortDescription}
+            </Text>
+
+            <View style={styles.skillTable}>
+              <View style={styles.tableRow}>
+                <Text style={[styles.tableHeader, { width: "100%" }]}>
+                  Current Matching Skills
+                </Text>
+              </View>
+              {matchingSkills.map((skill, index) => (
+                <View key={index} style={styles.tableRow}>
+                  <Text style={[styles.tableCell, { width: "100%" }]}>
+                    {skill.name}
+                  </Text>
+                </View>
+              ))}
+            </View>
+          </View>
+        )}
+
+        {/* Case 4: No recommended role, skills below 50% */}
+        {!recommendedRole && matchPercentage < 50 && (
+          <View
+            style={[styles.section, styles.subHeader, styles.subHeaderSection]}
+          >
+            <Text>
+              Congrats, your garden has the potential for multiple roles. Dive
+              into each opportunity and discover where your unique talents truly
+              thrive.
+            </Text>
+          </View>
+        )}
+
+        {/* Case 3: Other roles to consider */}
         <View style={styles.section}>
           <Text style={styles.subHeader}>Other Roles to Consider:</Text>
           {otherRoles.map((role, index) => (
@@ -143,20 +186,39 @@ const MyDocument = ({
               <Text style={styles.text}>
                 Match Percentage: {role.percentage}%
               </Text>
-              <Text style={styles.text}>{otherRolesDescriptions[index]}</Text>
-
               <View style={styles.skillTable}>
-                <View style={styles.tableRow}>
-                  <Text style={[styles.tableHeader, { width: "50%" }]}>
-                    Skills to Improve
-                  </Text>
-                  <Text style={[styles.tableHeader, { width: "50%" }]}>
-                    Current Matching Skills
-                  </Text>
-                </View>
-                {renderSkillsTable(
-                  otherRolesUnselectedSkills[index],
-                  otherRolesMatchingSkills[index]
+                {role.percentage < 100 ? (
+                  <View style={styles.tableRow}>
+                    <Text style={[styles.tableHeader, { width: "50%" }]}>
+                      Skills to Improve
+                    </Text>
+                    <Text style={[styles.tableHeader, { width: "50%" }]}>
+                      Current Matching Skills
+                    </Text>
+                  </View>
+                ) : (
+                  <View style={styles.tableRow}>
+                    <Text style={[styles.tableHeader, { width: "100%" }]}>
+                      Current Matching Skills
+                    </Text>
+                  </View>
+                )}
+
+                {role.percentage < 100 ? (
+                  renderSkillsTable(
+                    otherRolesUnselectedSkills[index],
+                    otherRolesMatchingSkills[index]
+                  )
+                ) : (
+                  <>
+                    {otherRolesMatchingSkills[index].map((skill, idx) => (
+                      <View key={idx} style={styles.tableRow}>
+                        <Text style={[styles.tableCell, { width: "100%" }]}>
+                          {skill.name}
+                        </Text>
+                      </View>
+                    ))}
+                  </>
                 )}
               </View>
             </View>
@@ -168,22 +230,32 @@ const MyDocument = ({
 );
 
 // render skills as a table with separated columns
-const renderSkillsTable = (unselectedSkills, matchingSkills) => (
-  <>
-    {unselectedSkills.map((skill, index) => (
-      <View key={index} style={styles.tableRow}>
-        <Text style={[styles.tableCell, { width: "50%" }]}>{skill.name}</Text>
-        <View style={styles.divider} />
+const renderSkillsTable = (unselectedSkills, matchingSkills) => {
+  const maxLength = Math.max(unselectedSkills.length, matchingSkills.length);
+
+  const rows = [];
+
+  for (let i = 0; i < maxLength; i++) {
+    const unselectedSkill = unselectedSkills[i]?.name || "";
+    const matchingSkill = matchingSkills[i]?.name || "";
+
+    rows.push(
+      <View key={i} style={styles.tableRow}>
         <Text style={[styles.tableCell, { width: "50%" }]}>
-          {matchingSkills[index]?.name}
+          {unselectedSkill}
+        </Text>
+        <Text style={[styles.tableCell, { width: "50%" }]}>
+          {matchingSkill}
         </Text>
       </View>
-    ))}
-  </>
-);
+    );
+  }
+
+  return rows;
+};
 
 MyDocument.propTypes = {
-  recommendedRole: PropTypes.string.isRequired,
+  recommendedRole: PropTypes.string,
   matchPercentage: PropTypes.number.isRequired,
   unselectedSkills: PropTypes.arrayOf(
     PropTypes.shape({
@@ -195,13 +267,13 @@ MyDocument.propTypes = {
       name: PropTypes.string.isRequired,
     })
   ).isRequired,
+  recommendedRoleShortDescription: PropTypes.string,
   otherRoles: PropTypes.arrayOf(
     PropTypes.shape({
       role: PropTypes.string.isRequired,
       percentage: PropTypes.number.isRequired,
     })
   ).isRequired,
-  otherRolesDescriptions: PropTypes.arrayOf(PropTypes.string).isRequired,
   otherRolesUnselectedSkills: PropTypes.arrayOf(
     PropTypes.arrayOf(
       PropTypes.shape({

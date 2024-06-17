@@ -43,7 +43,7 @@ function CareerRecommendations({ results }) {
     const rolePercentages = Object.keys(roleCounts).map((role) => {
       const roleInfo = roleData.find((r) => r.title === role);
       const percentage = roleInfo
-        ? (roleCounts[role] / roleInfo.totalSkills) * 100
+        ? (roleCounts[role] / roleInfo.skills.length) * 100
         : 0;
       return {
         role,
@@ -217,7 +217,7 @@ function CareerRecommendations({ results }) {
                       Grow Your {recommendedRole} Skills
                     </p>
 
-                    {unselectedSkills.length > 0 && (
+                    {unselectedSkills.length > 0 ? (
                       <div className="mt-2 flex justify-center">
                         <ul className="flex flex-col items-start space-y-4">
                           {unselectedSkills.map((skill, index) => (
@@ -245,6 +245,13 @@ function CareerRecommendations({ results }) {
                             </li>
                           ))}
                         </ul>
+                      </div>
+                    ) : (
+                      <div className="mt-2 text-lg">
+                        <p>
+                          Congratulations! You have all the top skills required
+                          for this role.
+                        </p>
                       </div>
                     )}
                   </div>
@@ -312,7 +319,9 @@ function CareerRecommendations({ results }) {
                 unselectedSkills={unselectedSkills}
                 matchingSkills={matchingSkills}
                 otherRoles={otherRoles}
-                otherRolesDescriptions={otherRolesDescriptions}
+                recommendedRoleShortDescription={
+                  recommendedRoleShortDescription
+                }
                 otherRolesUnselectedSkills={otherRolesUnselectedSkills}
                 otherRolesMatchingSkills={otherRolesMatchingSkills}
               />
@@ -381,10 +390,11 @@ function CareerRecommendations({ results }) {
                     </div>
                   </div>
                   <div className="flex flex-col md:items-start justify-center pt-3 pb-10 md:pt-0 md:pb-0 md:mt-10">
-                    <p className="font-semibold text-xl mt-4">
-                      Grow Into a {role.role}
-                    </p>
-                    {otherRolesUnselectedSkills[index] && (
+                    <h4 className="font-semibold text-xl mt-4">
+                      Grow Your {role.role} Skills
+                    </h4>
+
+                    {otherRolesUnselectedSkills[index].length > 0 ? (
                       <div className="flex justify-center">
                         <ul className="md:flex flex-wrap">
                           {otherRolesUnselectedSkills[index].map(
@@ -413,12 +423,20 @@ function CareerRecommendations({ results }) {
                           )}
                         </ul>
                       </div>
+                    ) : (
+                      <div className="mt-2 text-lg">
+                        <p>
+                          Congratulations! You have all the top skills required
+                          for this role.
+                        </p>
+                      </div>
                     )}
+
                     {otherRolesMatchingSkills[index] && (
                       <div className="flex flex-col md:items-start justify-center pt-3 pb-10 md:pt-0 md:pb-0 md:mt-10">
-                        <p className="font-semibold text-xl mt-4">
+                        <h4 className="font-semibold text-xl mt-4">
                           Your Current Matching Skills
-                        </p>
+                        </h4>
                         <div className="flex justify-center">
                           <ul className="md:flex flex-wrap">
                             {otherRolesMatchingSkills[index].map(
